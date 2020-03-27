@@ -1,0 +1,23 @@
+# Global gitconfig
+[user]
+	name = Niklas Haag
+	email = niklas.haag@relexsolutions.de
+	username = niklashaag
+[push]
+	default = simple
+[pull]
+	rebase = true
+[core]
+	excludefile = /Users/niklashaag/.gitignore_global
+	excludesfile = /Users/niklashaag/.gitignore_global
+	commentchar = ";"
+[alias]
+	g = git
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	gpu = git push --set-upstream origin
+	gci = git commit
+	gitst = git status
+	gms='git merge --squash'
