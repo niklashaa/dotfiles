@@ -8,9 +8,8 @@
 [pull]
 	rebase = true
 [core]
-	excludefile = /Users/niklashaag/.gitignore_global
-	excludesfile = /Users/niklashaag/.gitignore_global
 	commentchar = ";"
+	editor = nvim
 [alias]
 	g = git
 	co = checkout
