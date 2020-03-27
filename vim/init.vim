@@ -8,14 +8,14 @@ Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
+" Do :coc#util#install() in vim if js file is missing
+Plugin 'neoclide/coc.nvim'
 
 " Mixed specific plugins
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
 
-" Python plugins
-Plugin 'neoclide/coc.nvim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
