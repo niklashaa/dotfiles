@@ -1,5 +1,0 @@
-# exclude everything
-bundle/*
-
-# exception to the rule
-!bundle/.gitkeep 
