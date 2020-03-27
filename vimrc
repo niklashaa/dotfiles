@@ -1,8 +1,7 @@
 " Niklas' .vimrc
 
 " Use vundle as plugin manager
-"set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " General plugins
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
@@ -17,7 +16,7 @@ Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
 
 " Python plugins
-Plugin 'neoclide/coc.nvim'
+"Plugin 'neoclide/coc.nvim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
