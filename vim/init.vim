@@ -9,8 +9,8 @@ Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
-" Do :coc#util#install() in vim if js file is missing
-Plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim' " Do :coc#util#install() in vim if js file is missing
+Plugin 'kien/ctrlp.vim'
 
 " Mixed specific plugins
 Plugin 'mechatroner/rainbow_csv'
@@ -28,6 +28,8 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 let g:syntastic_quiet_messages = { 'regex': ['proprietary attribute','E501'] }
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
 let python_highlight_all=1 "Make code look pretty
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Open python files fast
 let g:python_host_prog = 1
