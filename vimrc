@@ -1,4 +1,5 @@
 " Niklas' .vimrc
+source ~/.vim/plugins/coc.vim
 
 " Use vundle as plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
