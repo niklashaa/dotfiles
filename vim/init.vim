@@ -94,6 +94,9 @@ set smartcase " When a search phrase has uppercase, don't be case insensitive
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+"Navigation
+nnoremap <C-l> <C-i>
+
 "Colorscheme
 syntax enable
 set background=dark
@@ -108,6 +111,13 @@ set foldnestmax=10 " 10 nested fold max
 " Split + remap moving between panes
 set splitbelow
 set splitright
+
+" Automatic views
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 " Functions
 function! StripTrailingWhitespaces()

@@ -49,9 +49,9 @@ command! MakeTags !ctags -R .
 
 " Tabs and spaces
 set tabstop=4 " number of visual spaces per TAB
-set expandtab " tabs are spaces
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " governs indentation via >>
+set expandtab " tabs are spaces
 " remap stripping function to f5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <C-a> <C-w>
@@ -92,6 +92,9 @@ set smartcase " When a search phrase has uppercase, don't be case insensitive
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Navigation
+nnoremap <C-l> <C-i>
+
 "Colorscheme
 syntax enable
 set background=dark
@@ -106,6 +109,13 @@ set foldnestmax=10 " 10 nested fold max
 " Split + remap moving between panes
 set splitbelow
 set splitright
+
+" Automatic views
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 " Functions
 function! StripTrailingWhitespaces()
