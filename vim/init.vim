@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
+Plugin 'JuliaEditorSupport/julia-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,9 +52,10 @@ command! MakeTags !ctags -R .
 
 " Tabs and spaces
 set tabstop=4 " number of visual spaces per TAB
-set expandtab " tabs are spaces
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " governs indentation via >>
+set expandtab " tabs are spaces
+set smarttab
 " remap stripping function to f5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <C-a> <C-w>
@@ -61,7 +63,7 @@ nnoremap <C-a> <C-w>
 " UI config
 set number
 set relativenumber
-set wildmode=longest,list,full " Sets autocompletion mode when opening a file in vim
+set wildmode=full " Sets autocompletion mode when opening a file in vim
 set wildmenu " command line completion
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
@@ -72,7 +74,6 @@ set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
 set backspace=indent,eol,start  " more powerful backspacing
-"set laststatus=2 "Show filepath in vim window
 set title "Show filename
 " yank to clipboard
 if has("clipboard")
@@ -93,9 +94,6 @@ set ignorecase "Be case insensitive when searching
 set smartcase " When a search phrase has uppercase, don't be case insensitive
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-
-"Navigation
-nnoremap <C-l> <C-i>
 
 "Colorscheme
 syntax enable
