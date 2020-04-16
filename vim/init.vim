@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 
 call vundle#end()            " required
