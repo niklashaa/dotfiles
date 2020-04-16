@@ -33,6 +33,10 @@ let python_highlight_all=1 "Make code look pretty
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<C-Z>'
 
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
