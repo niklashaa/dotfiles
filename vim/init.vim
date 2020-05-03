@@ -18,6 +18,7 @@ Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'posva/vim-vue'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -32,10 +33,10 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
 let python_highlight_all=1 "Make code look pretty
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_expandabbr_key = '<C-y>m'
 
 " Open python files fast
 let g:python_host_prog = 1
