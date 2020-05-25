@@ -44,9 +44,9 @@ nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " General settings
 let mapleader=','
-" ii is escape
-inoremap ii <esc>
-vnoremap ii <esc>
+" jk is escape
+inoremap jk <esc>
+vnoremap jk <esc>
 set nocompatible "be iMproved
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
