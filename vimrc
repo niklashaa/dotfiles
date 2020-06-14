@@ -11,7 +11,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'neoclide/coc.nvim' " Do :coc#util#install() in vim if js file is missing
-Plugin 'kien/ctrlp.vim'
 
 " Mixed specific plugins
 Plugin 'mechatroner/rainbow_csv'
