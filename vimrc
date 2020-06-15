@@ -41,6 +41,7 @@ let g:user_emmet_expandabbr_key = '<C-y>m'
 
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+map <c-f> :call JsBeautify()<cr>
 
 " General settings
 let mapleader=','

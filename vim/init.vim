@@ -24,6 +24,25 @@ Plugin 'maksimr/vim-jsbeautify'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Plugin shortcuts and settings
+map <C-n> :NERDTreeToggle<CR>
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_quiet_messages = { 'regex': ['proprietary attribute','E501'] }
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
+let python_highlight_all=1 "Make code look pretty
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_expandabbr_key = '<C-y>m'
+
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+map <c-f> :call JsBeautify()<cr>
+
 " General settings
 let mapleader=','
 " jk is escape
