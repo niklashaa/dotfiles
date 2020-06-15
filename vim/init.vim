@@ -1,15 +1,15 @@
 " Niklas' init.vim
-source ~/.vim/plugins/coc.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Use vundle as plugin manager
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " General plugins
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
-Plugin 'neoclide/coc.nvim' " Do :coc#util#install() in vim if js file is missing
 Plugin 'kien/ctrlp.vim'
 
 " Mixed specific plugins
@@ -19,40 +19,17 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'posva/vim-vue'
-
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-" Plugin shortcuts and settings
-map <C-n> :NERDTreeToggle<CR>
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_quiet_messages = { 'regex': ['proprietary attribute','E501'] }
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
-let python_highlight_all=1 "Make code look pretty
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:user_emmet_mode='a'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_expandabbr_key = '<C-y>m'
-
-" Open python files fast
-let g:python_host_prog = 1
-let g:python3_host_prog = 1
-
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " General settings
 let mapleader=','
 " jk is escape
 inoremap jk <esc>
 vnoremap jk <esc>
-set nocompatible "be iMproved
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
+" set ttymouse=xterm2
 set mouse=a
 command! MakeTags !ctags -R .
 
@@ -115,13 +92,6 @@ set foldnestmax=10 " 10 nested fold max
 " Split + remap moving between panes
 set splitbelow
 set splitright
-
-" Automatic views
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
 
 " Functions
 function! StripTrailingWhitespaces()

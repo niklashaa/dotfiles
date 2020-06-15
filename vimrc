@@ -1,5 +1,6 @@
 " Niklas' .vimrc
-source ~/.vim/plugins/coc.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " Use vundle as plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,7 +11,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'neoclide/coc.nvim' " Do :coc#util#install() in vim if js file is missing
 
 " Mixed specific plugins
 Plugin 'mechatroner/rainbow_csv'
@@ -46,10 +46,9 @@ let mapleader=','
 " jk is escape
 inoremap jk <esc>
 vnoremap jk <esc>
-set nocompatible "be iMproved
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
-set ttymouse=xterm2
+" set ttymouse=xterm2
 set mouse=a
 command! MakeTags !ctags -R .
 
