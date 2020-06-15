@@ -19,6 +19,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'posva/vim-vue'
+Plugin 'maksimr/vim-jsbeautify'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
