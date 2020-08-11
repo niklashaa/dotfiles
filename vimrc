@@ -13,6 +13,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 
 " Mixed specific plugins
+Plugin 'davidhalter/jedi-vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'LnL7/vim-nix'
 Plugin 'tpope/vim-surround'
