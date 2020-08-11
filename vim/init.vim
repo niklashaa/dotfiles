@@ -11,6 +11,13 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
+" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plugin 'ncm2/ncm2-bufword'
+Plugin 'ncm2/ncm2-path'
 
 " Mixed specific plugins
 Plugin 'davidhalter/jedi-vim'
@@ -43,6 +50,12 @@ let g:user_emmet_expandabbr_key = '<C-y>m'
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <C-a>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 map <c-f> :call JsBeautify()<cr>
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 " General settings
 let mapleader=','
