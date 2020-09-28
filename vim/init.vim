@@ -8,8 +8,8 @@ call vundle#begin()
 " General plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plugin 'ncm2/ncm2'

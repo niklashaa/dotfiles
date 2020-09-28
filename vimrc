@@ -8,8 +8,8 @@ call vundle#begin()
 " General plugins
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
 Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 
 " Mixed specific plugins
