@@ -1,6 +1,6 @@
 " Niklas' init.vim
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required (vim-sensible)
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,19 +8,16 @@ call vundle#begin()
 " General plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+" ncm2 + completion sources
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-path'
 
 " Mixed specific plugins
-" Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 " Plugin 'JuliaEditorSupport/julia-vim'
@@ -28,11 +25,19 @@ Plugin 'posva/vim-vue'
 Plugin 'maksimr/vim-jsbeautify'
 
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " (vim-sensible)
 
 " Plugin shortcuts and settings
-"map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
+
+let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_preview=1 " preview window shown in a vertically split
+autocmd BufWritePre *
+    \ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
+        \ call mkdir(expand('<afile>:h'), 'p') |
+    \ endif
 let python_highlight_all=1 "Make code look pretty
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -56,7 +61,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " General settings
 let mapleader=','
-nnoremap <C-a> <C-w>
 " jk is escape
 inoremap jk <esc>
 vnoremap jk <esc>
@@ -71,7 +75,7 @@ set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " governs indentation via >>
 set expandtab " tabs are spaces
-set smarttab
+"set smarttab (vim-sensible)
 
 " UI config
 set number
@@ -81,11 +85,11 @@ set wildmenu " command line completion
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
-set autoindent " Don't return to left margin all the time
+"set autoindent " Don't return to left margin all the time (vim-sensible)
 set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
-set backspace=indent,eol,start  " more powerful backspacing
+"set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
 set clipboard=unnamed
 " yank to clipboard
@@ -111,7 +115,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 "Colorscheme
 syntax enable
 set background=dark
-colorscheme molokai
+colorscheme gruvbox
 
 " Folding
 set foldenable "enable folding
