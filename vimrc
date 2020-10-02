@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 " Mixed specific plugins
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'mattn/emmet-vim'
 " Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'posva/vim-vue'
@@ -41,16 +42,16 @@ let g:ctrlp_max_files=0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_expandabbr_key = '<C-y>m'
+let g:user_emmet_leader_key='<c-s>'
+autocmd FileType html,css,vue EmmetInstall
 
 map <c-f> :call JsBeautify()<cr>
 
 " General settings
-let mapleader=','
-" jk is escape
-inoremap jk <esc>
-vnoremap jk <esc>
+"let mapleader=','
+" ii is escape
+inoremap ii <esc>
+vnoremap ii <esc>
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
