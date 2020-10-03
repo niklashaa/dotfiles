@@ -1,32 +1,29 @@
 " Niklas' init.vim
 set nocompatible              " be iMproved, required
-"filetype off                  " required (vim-sensible)
+filetype off                  " required (vim-sensible)
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 " General plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-sensible'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 " ncm2 + completion sources
-Plugin 'ncm2/ncm2'
-Plugin 'roxma/nvim-yarp'
-Plugin 'ncm2/ncm2-bufword'
-Plugin 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 
 " Mixed specific plugins
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'mattn/emmet-vim'
-" Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'posva/vim-vue'
-Plugin 'maksimr/vim-jsbeautify'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'mattn/emmet-vim'
+" Plug 'JuliaEditorSupport/julia-vim'
+Plug 'posva/vim-vue'
+Plug 'maksimr/vim-jsbeautify'
 
-call vundle#end()            " required
-"filetype plugin indent on    " (vim-sensible)
+call plug#end()            " required
+filetype plugin indent on    " (vim-sensible)
 
 " Plugin shortcuts and settings
 map <C-n> :NERDTreeToggle<CR>
@@ -59,6 +56,7 @@ set completeopt=noinsert,menuone,noselect
 " use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set shortmess+=c
 
 " General settings
 let mapleader=','
@@ -76,7 +74,7 @@ set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " governs indentation via >>
 set expandtab " tabs are spaces
-"set smarttab (vim-sensible)
+set smarttab " (vim-sensible)
 
 " UI config
 set number
@@ -86,11 +84,11 @@ set wildmenu " command line completion
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
-"set autoindent " Don't return to left margin all the time (vim-sensible)
+set autoindent " Don't return to left margin all the time (vim-sensible)
 set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
-"set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
+set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
 set clipboard=unnamed
 " yank to clipboard
