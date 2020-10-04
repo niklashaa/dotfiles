@@ -2,27 +2,24 @@
 set nocompatible              " be iMproved, required
 "filetype off                  " required (vim-sensible)
 
-" Use vundle as plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 "General plugins
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-sensible'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 
 " Mixed specific plugins
-Plugin 'davidhalter/jedi-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'mattn/emmet-vim'
-" Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'posva/vim-vue'
-Plugin 'maksimr/vim-jsbeautify'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'mattn/emmet-vim'
+" Plug 'JuliaEditorSupport/julia-vim'
+Plug 'posva/vim-vue'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-call vundle#end()            " required
-"filetype plugin indent on (vim-sensible)
+call plug#end()            " required
+filetype plugin indent on "(vim-sensible)
 
 " Plugin shortcuts and settings
 map <C-n> :NERDTreeToggle<CR>
@@ -46,6 +43,7 @@ let g:user_emmet_leader_key='<c-s>'
 autocmd FileType html,css,vue EmmetInstall
 
 map <c-f> :call JsBeautify()<cr>
+let g:deoplete#enable_at_startup = 1
 
 " General settings
 "let mapleader=','
@@ -63,7 +61,7 @@ set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " governs indentation via >>
 set expandtab " tabs are spaces
-"set smarttab (vim-sensible)
+set smarttab " (vim-sensible)
 
 " UI config
 set number
@@ -73,11 +71,11 @@ set wildmenu " command line completion
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
-"set autoindent " Don't return to left margin all the time (vim-sensible)
+set autoindent " Don't return to left margin all the time (vim-sensible)
 set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
-"set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
+set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
 set clipboard=unnamed
 " yank to clipboard

@@ -73,11 +73,9 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-         tmux)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -94,17 +92,21 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
 alias gw='ssh niklas.haag@gw.relex.fi'
-alias rel='cd ~/code/relex'
 alias cc='cd ~/code/relex/customer-configs'
 alias cm='cd ~/code/relex/customer-modules/adapters/src'
 alias chc='cd ~/code/relex/checkup-config'
 alias lok='cd ~/code/relex/loki'
-alias coc='cd ~/code/relex/connect-configs'
-alias isg='cd ~/code/relex/isengard'
 alias cl='clear'
 alias rc='ruby -c'
 alias gci='git commit'
 alias gitst='git status'
+
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tkss='tmux kill-session -t'
+alias tksv='tmux kill-server'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -113,3 +115,5 @@ if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
