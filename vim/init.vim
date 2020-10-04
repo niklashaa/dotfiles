@@ -6,8 +6,8 @@ call plug#begin()
 " General plugins
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 
 " Mixed specific plugins
