@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/rainbow_parentheses.vim'
 
 call plug#end()            " required
 filetype plugin indent on "(vim-sensible)

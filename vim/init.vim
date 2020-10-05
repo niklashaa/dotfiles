@@ -17,6 +17,7 @@ Plug 'mattn/emmet-vim'
 " Plug 'JuliaEditorSupport/julia-vim'
 Plug 'posva/vim-vue'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 call plug#end()            " required
 filetype plugin indent on    " (vim-sensible)
@@ -47,9 +48,6 @@ let g:deoplete#enable_at_startup = 1
 
 " General settings
 let mapleader=','
-" ii is escape
-inoremap ii <esc>
-vnoremap ii <esc>
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2

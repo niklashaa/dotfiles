@@ -117,4 +117,3 @@ if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/path.zsh.inc' ]; then . '
 if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$HOME/Library/Python/3.8/bin:$PATH"
