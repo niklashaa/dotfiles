@@ -73,7 +73,8 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git
+         node)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -117,3 +118,8 @@ if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/path.zsh.inc' ]; then . '
 if [ -f '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/code/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi

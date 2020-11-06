@@ -7,7 +7,6 @@ call plug#begin()
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 
 " Mixed specific plugins
@@ -48,7 +47,7 @@ map <c-f> :call JsBeautify()<cr>
 let g:deoplete#enable_at_startup = 1
 
 " General settings
-"let mapleader=','
+let mapleader=','
 " ii is escape
 inoremap ii <esc>
 vnoremap ii <esc>
@@ -57,6 +56,13 @@ set statusline+=%F " shows current file
 " set ttymouse=xterm2
 set mouse=a
 "command! MakeTags !ctags -R .
+noremap gj J
+" Move down file lines
+noremap J 5j
+vnoremap J 5j
+" Move up file lines
+noremap K 5k
+vnoremap K 5k
 
 " Tabs and spaces
 set tabstop=4 " number of visual spaces per TAB

@@ -7,7 +7,6 @@ call plug#begin()
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 
 " Mixed specific plugins
@@ -48,11 +47,21 @@ let g:deoplete#enable_at_startup = 1
 
 " General settings
 let mapleader=','
+" jk is escape
+inoremap jk <esc>
+vnoremap jk <esc>
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
 set mouse=a
 " command! MakeTags !ctags -R .
+noremap gj J
+" Move down file lines
+noremap J 5j
+vnoremap J 5j
+" Move up file lines
+noremap K 5k
+vnoremap K 5k
 
 " Tabs and spaces
 set tabstop=4 " number of visual spaces per TAB
@@ -75,7 +84,7 @@ set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
 set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
-set clipboard=unnamed
+set clipboard=unnamedplus
 " yank to clipboard
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard

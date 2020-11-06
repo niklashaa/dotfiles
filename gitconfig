@@ -1,22 +1,11 @@
-# Global gitconfig
-[user]
-	name = Niklas Haag
-	email = niklas.haag@relexsolutions.de
-	username = niklashaag
-[push]
-	default = simple
-[pull]
-	rebase = true
-[core]
-	commentchar = ";"
-	editor = nvim
 [alias]
-	g = git
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	gpu = git push --set-upstream origin
-	gci = git commit
-	gitst = git status
-	gms='git merge --squash'
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[user]
+	email = niklas.haag@yahoo.de
+	name = Niklas Haag
+[core]
+	editor = vim
