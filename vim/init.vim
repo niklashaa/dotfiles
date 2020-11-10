@@ -22,11 +22,7 @@ call plug#end()            " required
 filetype plugin indent on    " (vim-sensible)
 
 " Plugin shortcuts and settings
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore .pyc files in NERDTree
-
 let g:netrw_liststyle=3 " Use tree-mode as default view
-let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
 autocmd BufWritePre *
     \ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
@@ -47,9 +43,9 @@ let g:deoplete#enable_at_startup = 1
 
 " General settings
 let mapleader=','
-" jk is escape
-inoremap jk <esc>
-vnoremap jk <esc>
+" ii is escape
+inoremap ii <esc>
+vnoremap ii <esc>
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
