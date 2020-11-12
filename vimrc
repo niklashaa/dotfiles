@@ -33,6 +33,7 @@ let python_highlight_all=1 "Make code look pretty
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
@@ -81,7 +82,6 @@ set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
 set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
-set clipboard=unnamed
 " yank to clipboard
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard

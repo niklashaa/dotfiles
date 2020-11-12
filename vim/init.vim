@@ -32,6 +32,7 @@ let python_highlight_all=1 "Make code look pretty
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
