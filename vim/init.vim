@@ -15,6 +15,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
 " Plug 'JuliaEditorSupport/julia-vim'
 Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'junegunn/rainbow_parentheses.vim'
 
