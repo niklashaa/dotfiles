@@ -8,14 +8,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kien/ctrlp.vim'
+Plug 'sheerun/vim-polyglot'
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
-" Plug 'JuliaEditorSupport/julia-vim'
-Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'junegunn/rainbow_parentheses.vim'
 

@@ -5,7 +5,7 @@
   br = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [user]
-	email = niklas.haag@yahoo.de
-	name = Niklas Haag
+    email = niklas.haag@yahoo.de
+    name = Niklas Haag
 [core]
-	editor = vim
+    editor = nvim
