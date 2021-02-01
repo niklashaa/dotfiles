@@ -1,0 +1,20 @@
+'atom-text-editor':
+# [cursor history]
+  'ctrl-i': 'cursor-history:next'
+  'ctrl-o': 'cursor-history:prev'
+  'ctrl-alt-i': 'cursor-history:next-within-editor'
+  'ctrl-alt-o': 'cursor-history:prev-within-editor'
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'i i': 'vim-mode-plus:activate-normal-mode'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  '^': 'editor:move-to-first-character-of-line'
+  'g j': 'vim-mode-plus:join'
+  ': w enter': 'core:save'
+  'shift-J': 'core:move-down'
+  'shift-K': 'core:move-up'
+
+'atom-text-editor[mini]':
+  'i i': 'core:cancel'
+  ': w enter': 'core:save'

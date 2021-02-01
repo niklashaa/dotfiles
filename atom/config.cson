@@ -1,0 +1,29 @@
+"*":
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
+  core:
+    disabledPackages: [
+      "julia-client"
+      "language-julia"
+      "uber-juno"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 10
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "5e6bde64-3202-477f-9e18-d6899e860caa"
+  "julia-client":
+    currentVersion: "0.12.6"
+    firstBoot: false
+    uiOptions:
+      enableMenu: true
+      enableToolBar: true
+      layouts:
+        openDefaultPanesOnStartUp: false
+  "tool-bar":
+    position: "Left"
+  "uber-juno":
+    disable: true
+  welcome:
+    showOnStartup: false
