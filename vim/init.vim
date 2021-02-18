@@ -60,9 +60,9 @@ noremap K 5k
 vnoremap K 5k
 
 " Tabs and spaces
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
-set shiftwidth=4 " governs indentation via >>
+set tabstop=2 " number of visual spaces per TAB
+set softtabstop=2 " number of spaces in tab when editing
+set shiftwidth=2 " governs indentation via >>
 set expandtab " tabs are spaces
 set smarttab " (vim-sensible)
 
