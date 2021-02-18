@@ -113,8 +113,8 @@ set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
 
 " Split + remap moving between panes
-"set splitbelow
-"set splitright
+set splitbelow
+set splitright
 
 " default coc settings
 " TextEdit might fail if hidden is not set.
