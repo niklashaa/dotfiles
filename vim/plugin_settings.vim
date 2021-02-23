@@ -10,6 +10,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore = 'node_modules\|git'
+let g:ctrlp_extensions = ['tag', 'buffertag']
+
 " }}}
 
 " #EMMET {{{
@@ -176,4 +178,13 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" }}}
+
+" #GUTENTAGS {{{
+let g:gutentags_ctags_exclude = [
+  \ 'node_modules/*',
+  \ '.nuxt/*',
+  \ 'package.*',
+  \ 'static/*',
+\]
 " }}}

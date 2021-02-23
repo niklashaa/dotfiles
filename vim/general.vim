@@ -8,7 +8,6 @@ set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
 set mouse=a
-" command! MakeTags !ctags -R .
 
 " Tabs and spaces
 set tabstop=2 " number of visual spaces per TAB
