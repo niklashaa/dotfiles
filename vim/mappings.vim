@@ -31,6 +31,10 @@ set splitright
 " Apply vim configurations without restarting
 nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
+" Save state of open Windows and Buffers
+nnoremap <leader>s :mksession<CR>
+
+" Find tags with CtrlP
 nnoremap <Leader>t :CtrlPBufTag<CR>
 nnoremap <Leader>T :CtrlPTag<CR>
 
