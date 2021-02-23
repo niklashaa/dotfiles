@@ -1,4 +1,4 @@
 vim/plugged
 vim/.netrwhist
-vim/autoload
-tags
+vim/autoload/
+tags*
