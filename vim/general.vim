@@ -56,8 +56,8 @@ set smartcase " When a search phrase has uppercase, don't be case insensitive
 
 "Colour scheme
 syntax enable
-set background=dark
-colorscheme gruvbox
+set background=light
+colorscheme solarized8
 
 " Folding
 set foldenable "enable folding
