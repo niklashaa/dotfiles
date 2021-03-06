@@ -1,3 +1,9 @@
+#!bin/bash
+# Add shortcuts and corners
+# Install zsh
+# Install alphred + keypassxc + plank
+# Set up google account for keypass database
+apt install silversearcher-ag
 cd ~
 mkdir .dotfiles && cd .dotfiles
 git clone git@github.com:niklashaa/dotfiles.git
@@ -12,5 +18,6 @@ apt install gcc make pkg-config autoconf automake python3-docutils libseccomp-de
 make
 make install # may require extra privileges depending on where to install
 
+# Install firefox developer
+mkdir /opt/firefox-developer
 
-apt install atom
