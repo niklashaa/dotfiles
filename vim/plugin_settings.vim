@@ -9,7 +9,11 @@ autocmd BufWritePre *
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
-let g:ctrlp_custom_ignore = 'node_modules\|git'
+"let g:ctrlp_custom_ignore = 'node_modules\|git'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v(node_modules|git)',
+    \ 'file':  '\vlib[\/]\.js$',
+    \ }
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
 " }}}

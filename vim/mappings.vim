@@ -24,6 +24,9 @@ vnoremap <C-c> "*y
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Live substitution
+set inccommand=split
+
 " Split + remap moving between panes
 set splitbelow
 set splitright
