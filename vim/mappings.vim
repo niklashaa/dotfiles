@@ -1,6 +1,6 @@
 " KEYMAP SETTINGS
 
-let mapleader=','
+let mapleader=' '
 
 " ii is escape
 inoremap ii <esc>
@@ -30,9 +30,6 @@ set inccommand=split
 " Split + remap moving between panes
 set splitbelow
 set splitright
-
-" Apply vim configurations without restarting
-nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
 " Save state of open Windows and Buffers
 nnoremap <leader>s :mksession<CR>
