@@ -6,6 +6,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "IDE like features
 Plug 'kien/ctrlp.vim' " Fuzzy search
 Plug 'sheerun/vim-polyglot' " Syntax highlighting for 100+ Languages
 Plug 'ludovicchabant/vim-gutentags' " Manage tag files automatically
+Plug 'tpope/vim-fugitive' " Mappings for surroundings like brackets, quotes, e.t.c.
+Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.
