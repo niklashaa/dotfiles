@@ -8,25 +8,55 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    }
-  ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  }
+  },
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [",","<leader>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["g","j"],
+      "after": ["J"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5","j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5","k"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["i", "i"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["i", "i"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5","j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5","k"]
+    },
+    {
+      "before": [ ">" ],
+      "commands": [ "editor.action.indentLines" ]
+    },
+    {
+      "before": [ "<" ],
+      "commands": [ "editor.action.outdentLines" ]
+    }
+  ]
 }
