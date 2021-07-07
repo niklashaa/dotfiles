@@ -4,6 +4,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required (vim-sensible)
 filetype plugin indent on    " (vim-sensible)
 
+set hidden " show hidden files
 set ruler " shows current row and column in the bottom right
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
