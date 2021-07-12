@@ -90,12 +90,8 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias nvim='~/.local/share/nvim.appimage'
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
-alias gw='ssh niklas.haag@gw.relex.fi'
-alias cc='cd ~/code/relex/customer-configs'
-alias cm='cd ~/code/relex/customer-modules/adapters/src'
-alias chc='cd ~/code/relex/checkup-config'
-alias lok='cd ~/code/relex/loki'
 alias cl='clear'
 alias rc='ruby -c'
 alias gci='git commit'
