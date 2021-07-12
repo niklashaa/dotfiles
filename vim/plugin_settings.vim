@@ -29,6 +29,19 @@ autocmd FileType html,css,vue EmmetInstall
 map <c-f> :call JsBeautify()<cr>
 " }}}
 
+" TREESITTER {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "java" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+" }}}
+
 " #COC {{{
 " TextEdit might fail if hidden is not set.
 set hidden

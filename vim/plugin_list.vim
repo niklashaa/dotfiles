@@ -4,7 +4,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "IDE like features
 Plug 'kien/ctrlp.vim' " Fuzzy search
-Plug 'sheerun/vim-polyglot' " Syntax highlighting for 100+ Languages
+" Plug 'sheerun/vim-polyglot' " Syntax highlighting for 100+ Languages
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
 Plug 'ludovicchabant/vim-gutentags' " Manage tag files automatically
 Plug 'tpope/vim-fugitive' " Mappings for surroundings like brackets, quotes, e.t.c.
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
