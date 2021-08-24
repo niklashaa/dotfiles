@@ -9,3 +9,4 @@
     name = Niklas Haag
 [core]
     editor = nvim
+	excludesfile = /home/niklas/.gitignore_global
