@@ -27,6 +27,7 @@ set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
 set autoindent " Don't return to left margin all the time (vim-sensible)
+set smartindent " Smart autoindenting when starting a new line
 set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
 set showcmd " shows current command
