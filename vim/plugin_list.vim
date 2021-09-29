@@ -9,6 +9,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updat
 Plug 'ludovicchabant/vim-gutentags' " Manage tag files automatically
 Plug 'tpope/vim-fugitive' " Mappings for surroundings like brackets, quotes, e.t.c.
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
+Plug 'leafOfTree/vim-vue-plugin'
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.

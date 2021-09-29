@@ -260,3 +260,19 @@ let g:ale_linters = { 'javascript': ['eslint'],'vue':['eslint'] }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " }}}
+
+" #VIM-VUE-PLUGIN {{{
+let g:vim_vue_plugin_config = {
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
+" }}}
