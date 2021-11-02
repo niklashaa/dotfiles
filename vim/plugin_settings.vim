@@ -9,10 +9,9 @@ autocmd BufWritePre *
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
-"let g:ctrlp_custom_ignore = 'node_modules\|git'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v(node_modules|git)',
-    \ 'file':  '\vlib[\/]\.js$',
+    \ 'file':  '\vlib[\/].*\.js',
     \ }
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
@@ -255,8 +254,8 @@ let g:gutentags_ctags_exclude = [
 
 " #ALE {{{
 let g:ale_sign_column_always = 1
-let g:ale_fixers = { 'javascript': ['eslint'],'vue':['eslint'] }
-let g:ale_linters = { 'javascript': ['eslint'],'vue':['eslint'] }
+let g:ale_fixers = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " }}}
