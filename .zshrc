@@ -26,8 +26,7 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-# https://www.atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
