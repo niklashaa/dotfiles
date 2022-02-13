@@ -10,3 +10,4 @@ node_modules/
 coverage/
 todo.txt
 .cfg
+*.env
