@@ -10,6 +10,7 @@ Plug 'ludovicchabant/vim-gutentags' " Manage tag files automatically
 Plug 'tpope/vim-fugitive' " Mappings for surroundings like brackets, quotes, e.t.c.
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'sjl/gundo.vim' " Vim undo tree vizualizer
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.
