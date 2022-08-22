@@ -43,3 +43,6 @@ nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
 " Save state of open Windows and Buffers
 " nnoremap <leader>s :mksession<CR>
+
+" Make visual selection searchable with //
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
