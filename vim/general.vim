@@ -44,6 +44,11 @@ if has("clipboard")
   endif
 endif
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Plugin shortcuts and settings
 let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_preview=1 " preview window shown in a vertically split
