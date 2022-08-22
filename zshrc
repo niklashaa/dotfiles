@@ -6,6 +6,8 @@ export NODE_PATH='/usr/local/lib/node_modules'
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+set -o vi
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -122,3 +124,5 @@ if [ -f '/home/niklas/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/ho
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/niklas/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/niklas/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$PATH:/opt/julia-1.7.2/bin"
