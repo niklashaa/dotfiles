@@ -21,4 +21,7 @@ Plug 'maksimr/vim-jsbeautify' " beautifies on <C-f>
 Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 
+" Color schemes
+Plug 'joshdick/onedark.vim'
+
 call plug#end()            " required
