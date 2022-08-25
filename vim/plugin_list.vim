@@ -2,6 +2,7 @@ call plug#begin()
 " General plugins
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "IDE like features
 Plug 'kien/ctrlp.vim' " Fuzzy search
 " Plug 'sheerun/vim-polyglot' " Syntax highlighting for 100+ Languages
