@@ -12,6 +12,7 @@ Plug 'tpope/vim-fugitive' " Mappings for surroundings like brackets, quotes, e.t
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mbbill/undotree' " Vim undo tree vizualizer
+Plug 'itchyny/lightline.vim'
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.
