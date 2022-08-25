@@ -62,7 +62,7 @@ set ignorecase "Be case insensitive when searching
 set smartcase " When a search phrase has uppercase, don't be case insensitive
 
 "Colour schemes
-"
+
 syntax enable
 " light
 "set background=light
