@@ -18,7 +18,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.
 Plug 'tpope/vim-repeat' " Repeat for vim-surround and other packages
 Plug 'mattn/emmet-vim' " Makes writing HTML and CSS much easier
-Plug 'maksimr/vim-jsbeautify' " beautifies on <C-f>
+" Plug 'maksimr/vim-jsbeautify' " beautifies on <C-f>
 Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 

@@ -25,7 +25,7 @@ autocmd FileType html,css,vue EmmetInstall
 " }}}
 
 " #JSBEAUTIFY {{{
-map <c-f> :call JsBeautify()<cr>
+" map <c-f> :call JsBeautify()<cr>
 " }}}
 
 " TREESITTER {{{
