@@ -1,4 +1,6 @@
 {
   "python.linting.enabled": false,
-  "python.pythonPath": "/Users/niklashaag/.pyenv/shims/python"
+  "python.pythonPath": "/Users/niklashaag/.pyenv/shims/python",
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true
 }
