@@ -14,6 +14,9 @@ vnoremap J 5j
 noremap K 5k
 vnoremap K 5k
 
+" yank deleted to underscore register
+xnoremap ("<leader>p", "\"_dP")
+
 " Copy and paste to the system clipboard
 noremap <Leader>y "*y
 noremap <Leader>d "*d
