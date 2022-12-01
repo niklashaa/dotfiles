@@ -15,6 +15,10 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
+" Find tags with CtrlP
+nnoremap <Leader>t :CtrlPBufTag<CR>
+nnoremap <Leader>T :CtrlPTag<CR>
+
 " }}}
 
 " #EMMET {{{
@@ -52,7 +56,7 @@ EOF
 
 " #COC {{{
 " CoC extensions
-" let g:coc_global_extensions = ['coc-tsserver', 'coc-volar']
+let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar']
 
 " Some servers have issues with backup files, see #649.
 set nobackup

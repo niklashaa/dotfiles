@@ -17,13 +17,6 @@ vnoremap K 5k
 " yank deleted to underscore register
 xnoremap ("<leader>p", "\"_dP")
 
-" Copy and paste to the system clipboard
-noremap <Leader>y "*y
-noremap <Leader>d "*d
-noremap <Leader>p "*p
-noremap <Leader>P "*P
-vnoremap <C-c> "*y
-
 " turn off search highlight
 nnoremap ,<leader> :nohlsearch<CR>
 
@@ -35,11 +28,7 @@ set splitbelow
 set splitright
 
 " Save state of open Windows and Buffers
-nnoremap <leader>s :mksession<CR>
-
-" Find tags with CtrlP
-nnoremap <Leader>t :CtrlPBufTag<CR>
-nnoremap <Leader>T :CtrlPTag<CR>
+" nnoremap <leader>s :mksession<CR>
 
 " Apply vim configurations without restarting
 nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
