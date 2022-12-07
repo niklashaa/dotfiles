@@ -24,6 +24,9 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# https://www.atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
