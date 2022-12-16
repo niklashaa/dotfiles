@@ -22,7 +22,7 @@ set number
 set relativenumber
 set wildmode=longest:full,full " Sets autocompletion mode when opening a file in vim
 set wildmenu " command line completion
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/node_modules/**,.git/**
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
