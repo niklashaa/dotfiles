@@ -27,14 +27,15 @@ set inccommand=split
 set splitbelow
 set splitright
 
-" Save state of open Windows and Buffers
-" nnoremap <leader>s :mksession<CR>
-
 " Apply vim configurations without restarting
 nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
-" Save state of open Windows and Buffers
-" nnoremap <leader>s :mksession<CR>
+" Shortcut to edit vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Make visual selection searchable with //
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Save state of open Windows and Buffers
+" nnoremap <leader>s :mksession<CR>
+
