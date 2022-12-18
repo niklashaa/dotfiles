@@ -46,7 +46,10 @@ endif
 
 " Source the vimrc file after saving it
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
+  " autocmd bufwritepost general.vim source $MYVIMRC
+  " autocmd bufwritepost mappings.vim source $MYVIMRC
+  " autocmd bufwritepost plugin_list.vim source $MYVIMRC
+  " autocmd bufwritepost plugin_settings.vim source $MYVIMRC
 endif
 
 " Plugin shortcuts and settings
