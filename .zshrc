@@ -84,6 +84,16 @@ plugins=(git npm yarn)
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
+# Always stay in tmux
+# _not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+# ensure_tmux_is_running() {
+#   if _not_inside_tmux; then
+#     tat
+#   fi
+# }
+# ensure_tmux_is_running
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

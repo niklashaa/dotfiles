@@ -24,7 +24,7 @@ nnoremap <Leader>T :CtrlPTag<CR>
 " #EMMET {{{
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<c-s>'
+let g:user_emmet_leader_key='<c-a>'
 autocmd FileType html,css,vue EmmetInstall
 " }}}
 
@@ -325,4 +325,12 @@ if has("persistent_undo")
     let &undodir=target_path
     set undofile
 endif
+" }}}
+
+" Vim-Tmux-Runner {{{
+" https://thoughtbot.com/upcase/videos/tmux-vim-integration
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 " }}}

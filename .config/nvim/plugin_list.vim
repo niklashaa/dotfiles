@@ -1,6 +1,5 @@
 call plug#begin()
 " General plugins
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired' " Move between warnings/errors
@@ -14,6 +13,8 @@ Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mbbill/undotree' " Vim undo tree vizualizer
 Plug 'itchyny/lightline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner' " Send commands from vim to tmux
 
 " Mixed specific plugins
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.

@@ -21,3 +21,15 @@ mkdir /opt/firefox-developer
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install neovim
+
+# Battery for tmux
+curl -O https://raw.githubusercontent.com/holman/spark/master/spark
+mv spark /usr/local/bin
+chmod u+x /usr/local/bin/spark
+
+curl -O https://raw.githubusercontent.com/goles/battery/master/battery
+mv battery /usr/local/bin
+chmod u+x /usr/local/bin/battery
+
+# Needed for switching tmux sessions nicely
+sudo apt-get install fzf
