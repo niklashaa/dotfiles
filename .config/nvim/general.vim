@@ -4,8 +4,15 @@ set nocompatible              " be iMproved, required
 filetype off                  " required (vim-sensible)
 filetype plugin indent on    " (vim-sensible)
 
-set hidden " show hidden files
-set ruler " shows current row and column in the bottom right
+" nvim defaults https://neovim.io/doc/user/vim_diff.html#nvim-defaults
+" set hidden " show hidden files
+" set ruler " shows current row and column in the bottom right
+" set smarttab " (vim-sensible)
+" set wildmenu " command line completion
+" set incsearch " search as characters are entered
+" set hlsearch " highlight searches
+" set showcmd " shows current command
+
 set statusline+=%F " shows current file
 " set ttymouse=xterm2
 set mouse=a
@@ -15,13 +22,11 @@ set tabstop=2 " number of visual spaces per TAB
 set softtabstop=2 " number of spaces in tab when editing
 set shiftwidth=2 " governs indentation via >>
 set expandtab " tabs are spaces
-set smarttab " (vim-sensible)
 
 " UI config
 set number
 set relativenumber
 set wildmode=longest:full,full " Sets autocompletion mode when opening a file in vim
-set wildmenu " command line completion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/node_modules/**,.git/**
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
@@ -30,7 +35,6 @@ set autoindent " Don't return to left margin all the time (vim-sensible)
 set smartindent " Smart autoindenting when starting a new line
 set list "show invisible characters
 set listchars=tab:▸\ ,eol:¬,space:·
-set showcmd " shows current command
 set backspace=indent,eol,start  " more powerful backspacing (vim-sensible)
 set title "Show filename
 set clipboard=unnamedplus
@@ -114,8 +118,6 @@ set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
 
 " Strip trailing whitespace from all files
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre * %s/\s\+$//e
 
 au BufRead,BufNewFile,BufReadPost *.json set syntax=json
