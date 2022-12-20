@@ -27,7 +27,7 @@ set expandtab " tabs are spaces
 set number
 set relativenumber
 set wildmode=longest:full,full " Sets autocompletion mode when opening a file in vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/node_modules/**,.git/**
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 set nocursorline " No highlighting for better scrolling
 set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
@@ -50,7 +50,7 @@ endif
 
 " Source the vimrc file after saving it
 if has("autocmd")
-  " autocmd bufwritepost general.vim source $MYVIMRC
+  " autocmd bufwritepost general.vim source ~/.config/nvim/init.vim
   " autocmd bufwritepost mappings.vim source $MYVIMRC
   " autocmd bufwritepost plugin_list.vim source $MYVIMRC
   " autocmd bufwritepost plugin_settings.vim source $MYVIMRC
@@ -61,7 +61,8 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_preview=1 " preview window shown in a vertically split
 
 " Searching
-" set path=.,,** " First search in current file, then in current dir, then in every subdirectory
+" https://twitter.com/tpope/status/612991667751264256
+set path=.,,node_modules " Search in current file, then in current dir, then following dirs
 " https://github.com/tpope/vim-apathy
 set includeexpr=substitute(v:fname,'^\\~\/','${PWD}/','') " substitute tilde with current working dir
 set suffixesadd=.vue,.js,.ts " Let gf also find these files
