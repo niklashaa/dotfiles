@@ -1,6 +1,6 @@
 " KEYMAP SETTINGS
 
-let mapleader=' '
+let mapleader=','
 
 " ii is escape
 inoremap ii <esc>
