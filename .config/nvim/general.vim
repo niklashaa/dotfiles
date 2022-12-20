@@ -61,10 +61,11 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_preview=1 " preview window shown in a vertically split
 
 " Searching
-set path=.,,** " First search in current file, then in current dir, then in every subdirectory
-set incsearch " search as characters are entered
-set hlsearch " highlight searches ...
-let @/ = "" " ... but not when sourcing vimrc
+" set path=.,,** " First search in current file, then in current dir, then in every subdirectory
+" https://github.com/tpope/vim-apathy
+set includeexpr=substitute(v:fname,'^\\~\/','${PWD}/','') " substitute tilde with current working dir
+set suffixesadd=.vue,.js,.ts " Let gf also find these files
+let @/ = "" " No hlsearch when when sourcing vimrc
 set ignorecase "Be case insensitive when searching
 set smartcase " When a search phrase has uppercase, don't be case insensitive
 
