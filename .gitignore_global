@@ -3,6 +3,8 @@
 *.swp
 .DS_Store
 tags
+tags.lock
+tags.temp
 node_modules/
 .env
 coverage/
