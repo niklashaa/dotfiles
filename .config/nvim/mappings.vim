@@ -31,7 +31,7 @@ set splitright
 nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
 " Shortcut to edit vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :tabe $MYVIMRC<CR>
 
 " Make visual selection searchable with //
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
