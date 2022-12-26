@@ -18,7 +18,7 @@ vnoremap K 5k
 xnoremap ("<leader>p", "\"_dP")
 
 " turn off search highlight
-nnoremap ,<leader> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Live substitution
 set inccommand=split
