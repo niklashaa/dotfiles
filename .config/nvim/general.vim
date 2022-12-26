@@ -1,6 +1,8 @@
 " GENERAL SETTINGS
 
 set nocompatible              " be iMproved, required
+set termguicolors " enable 24-bit TUI colours
+syntax enable
 filetype off                  " required (vim-sensible)
 filetype plugin indent on    " (vim-sensible)
 
@@ -86,28 +88,8 @@ if executable('ag')
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
+  nnoremap <leader>s :Ag<SPACE>
 endif
-
-"Color schemes
-
-syntax enable
-set termguicolors
-set background=dark
-"set background=light
-
-"colorscheme solarized8
-colorscheme gruvbox
-" colorscheme gruvbox-material
-" colorscheme onedark
-" colorscheme dracula
-" colorscheme tokyonight
-" colorscheme tender
-" colorscheme melange
-" colorscheme edge
-" colorscheme oceanic-next
-" colorscheme zenbones
-" colorscheme vim-monokai-tasty
-" colorscheme gruvbox-baby
 
 " Folding
 set foldenable "enable folding

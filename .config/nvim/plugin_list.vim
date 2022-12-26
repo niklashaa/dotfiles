@@ -27,7 +27,7 @@ Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 Plug 'mechatroner/rainbow_csv' " rainbow csv
 
-" Color schemes
+" Colorschemes
 Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'joshdick/onedark.vim'
