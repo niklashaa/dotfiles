@@ -30,6 +30,9 @@ set splitright
 " Apply vim configurations without restarting
 nnoremap <Leader>r :so ~/.config/nvim/init.vim<CR>
 
+" Open file under cursor in vertical split
+nnoremap <C-W>f <C-W>vgf
+
 " Shortcut to edit vimrc
 nmap <leader>v :vsp $MYVIMRC<CR>
 
@@ -39,3 +42,12 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " Save state of open Windows and Buffers
 " nnoremap <leader>s :mksession<CR>
 
+" Command line navigation
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
