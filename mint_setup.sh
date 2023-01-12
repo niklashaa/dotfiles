@@ -17,8 +17,12 @@ make install # may require extra privileges depending on where to install
 # Install firefox developer
 mkdir /opt/firefox-developer
 
-# Install stable neovim
-sudo add-apt-repository ppa:neovim-ppa/stable
+# Install newest neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable
+# sudo add-apt-repository --remove ppa:neovim-ppa/unstable
+# sudo apt remove neovim
+# sudo apt remove neovim-runtime
+# sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install neovim
 
@@ -33,3 +37,13 @@ chmod u+x /usr/local/bin/battery
 
 # Needed for switching tmux sessions nicely
 sudo apt-get install fzf
+
+## Kerith
+
+# gcloud
+sudo apt-get install apt-transport-https ca-certificates gnupg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update && sudo apt-get install google-cloud-cli
+sudo apt-get install kubectl
+gcloud init
