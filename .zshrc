@@ -79,7 +79,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm yarn ag)
+plugins=(git npm yarn ag kubectl gcloud)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -132,6 +132,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+## Gcloud setup
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/niklas/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/niklas/.local/share/google-cloud-sdk/path.zsh.inc'; fi
 
