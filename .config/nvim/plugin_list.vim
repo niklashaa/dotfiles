@@ -26,9 +26,12 @@ Plug 'maksimr/vim-jsbeautify' " beautifies on <C-f>
 Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 Plug 'mechatroner/rainbow_csv' " rainbow csv
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " Colorschemes
-Plug 'ellisonleao/gruvbox.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
+Plug 'morhetz/gruvbox'
+
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'joshdick/onedark.vim'
 " Plug 'dracula/vim'
