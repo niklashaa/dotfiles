@@ -1,10 +1,10 @@
 " GENERAL SETTINGS
 
-set nocompatible              " be iMproved, required
+set nocompatible " be iMproved, required
 set termguicolors " enable 24-bit TUI colours
 syntax enable
-filetype off                  " required (vim-sensible)
-filetype plugin indent on    " (vim-sensible)
+filetype off " required (vim-sensible)
+filetype plugin indent on " (vim-sensible)
 
 " nvim defaults https://neovim.io/doc/user/vim_diff.html#nvim-defaults
 " set hidden " show hidden files
