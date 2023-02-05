@@ -33,7 +33,7 @@ Plug 'mechatroner/rainbow_csv' " rainbow csv
 " Plug 'ellisonleao/gruvbox.nvim'
 Plug 'morhetz/gruvbox'
 
-" Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/gruvbox-material'
 " Plug 'joshdick/onedark.vim'
 " Plug 'dracula/vim'
 " Plug 'folke/tokyonight.nvim'
