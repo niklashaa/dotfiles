@@ -44,6 +44,8 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " TREESITTER {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+ -- ensure_installed = { "c", "lua", "vim", "help", "javascript", "bash", "awk", "css", "gitcommit", "gitignore", "html", "julia", "nix", "python", "regex", "sql"},
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { "java" }, -- List of parsers to ignore installing
   highlight = {
