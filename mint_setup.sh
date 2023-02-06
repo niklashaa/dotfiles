@@ -3,21 +3,33 @@
 # Install zsh
 # Install alphred + keypassxc + plank
 # Set up google account for keypass database
-apt install silversearcher-ag
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cd ~/.local/share
-git clone https://github.com/universal-ctags/ctags.git
-cd ctags
-apt install gcc make pkg-config autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
-./autogen.sh
-./configure --prefix=/where/you/want # defaults to /usr/local
-make
-make install # may require extra privileges depending on where to install
+# Set keyboard to German (US)
 
 # Install firefox developer
 mkdir /opt/firefox-developer
 
-# Install newest neovim
+# Nvm, node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# Install npm v16 for nuxt
+
+# Tmux
+apt install tmux
+sudo apt install fzf # Switch tmux sessions nicely
+
+# VIM
+## Treesitter
+apt install libc++-dev
+
+## Search
+apt install silversearcher-ag
+
+## Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+## Ctags
+apt-get install -y exuberant-ctags
+
+## Neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable
 # sudo add-apt-repository --remove ppa:neovim-ppa/unstable
 # sudo apt remove neovim
@@ -26,7 +38,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install neovim
 
-# Battery for tmux
+## Battery
 curl -O https://raw.githubusercontent.com/holman/spark/master/spark
 mv spark /usr/local/bin
 chmod u+x /usr/local/bin/spark
@@ -35,10 +47,10 @@ curl -O https://raw.githubusercontent.com/goles/battery/master/battery
 mv battery /usr/local/bin
 chmod u+x /usr/local/bin/battery
 
-# Needed for switching tmux sessions nicely
-sudo apt-get install fzf
-
 ## Kerith
+apt install mysql-client
+npm install --global yarn
+npm install -g typescript
 
 # gcloud
 sudo apt-get install apt-transport-https ca-certificates gnupg
