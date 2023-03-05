@@ -5,12 +5,22 @@
 # Set up google account for keypass database
 # Set keyboard to German (US)
 
-# Install firefox developer
-mkdir /opt/firefox-developer
-
 # Nvm, node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 # Install npm v16 for nuxt
+npm install -g neovim
+
+#Software
+## DBeaver
+## Firefox developer
+## GCM
+### https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md
+# sudo apt-get install pass
+
+## Spotify
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client
 
 # Tmux
 apt install tmux
@@ -19,6 +29,8 @@ sudo apt install fzf # Switch tmux sessions nicely
 # VIM
 ## Treesitter
 apt install libc++-dev
+# npm install --global tree-sitter
+# npm install --global tree-sitter-cli
 
 ## Search
 apt install silversearcher-ag
@@ -51,6 +63,9 @@ chmod u+x /usr/local/bin/battery
 apt install mysql-client
 npm install --global yarn
 npm install -g typescript
+### firebase login might only work with Chrome
+### => firebase login --no-localhost, copy url into chrome if chrome is not default
+npm install -g firebase-tools
 
 # gcloud
 sudo apt-get install apt-transport-https ca-certificates gnupg
@@ -58,4 +73,6 @@ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.clou
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install google-cloud-cli
 sudo apt-get install kubectl
+## Init might only work with Chrome
+### Copy url into chrome if chrome is not default
 gcloud init
