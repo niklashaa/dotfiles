@@ -10,3 +10,9 @@
 [core]
     editor = nvim
 	excludesfile = /home/niklas/.gitignore_global
+[credential]
+	credentialStore = secretservice
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
