@@ -15,7 +15,6 @@ npm install -g neovim
 ## Firefox developer
 ## GCM
 ### https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md
-# sudo apt-get install pass
 
 ## Spotify
 curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
