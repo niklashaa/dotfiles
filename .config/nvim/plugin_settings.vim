@@ -64,7 +64,8 @@ EOF
 
 " #COC {{{
 " CoC extensions
-" let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar']
+let g:coc_node_path = '/Users/niklashaag/.nvm/versions/node/v16.20.0/bin/node'
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -236,6 +237,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " #GUTENTAGS {{{
 " clear cache: command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+let g:gutentags_ctags_executable='/opt/homebrew/bin/ctags'
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['package.json', '.git']
 let g:gutentags_generate_on_new = 1
