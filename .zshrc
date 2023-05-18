@@ -4,6 +4,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/Apps:$PATH
 export NODE_PATH='/usr/local/lib/node_modules'
 
+export GCM_CREDENTIAL_STORE=keychain
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
