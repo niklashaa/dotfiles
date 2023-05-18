@@ -44,14 +44,13 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " TREESITTER {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
- -- ensure_installed = { "c", "lua", "vim", "help", "javascript", "bash", "awk", "css", "gitcommit", "gitignore", "html", "julia", "nix", "python", "regex", "sql"},
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "java" }, -- List of parsers to ignore installing
+  ensure_installed = { "c", "lua", "vim", "help", "javascript", "bash", "awk", "css", "gitcommit", "html", "julia", "nix", "python", "regex", "vue"},
+  -- ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = { "java" }, -- List of parsers to ignore installing (for 'all')
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-  },
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+    },
 }
 EOF
 " }}}
@@ -348,27 +347,4 @@ xmap <leader>db  <Plug>(DBExe)
 nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
-
-func! DBExe(...)
-  if !a:0
-    let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
-    return 'g@'
-  endif
-  let sel_save = &selection
-  let &selection = "inclusive"
-  let reg_save = @@
-
-  if a:1 == 'char'	" Invoked from Visual mode, use gv command.
-    silent exe 'normal! gvy'
-  elseif a:1 == 'line'
-    silent exe "normal! '[V']y"
-  else
-    silent exe 'normal! `[v`]y'
-  endif
-
-  execute "DB " . @@
-
-  let &selection = sel_save
-  let @@ = reg_save
-endfunc
 " }}}
