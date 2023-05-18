@@ -1,4 +1,8 @@
 " #PLUGINS AND EXTERNAL COMMANDS
+augroup MyGroup | au!
+    autocmd FileType sql setlocal commentstring=--\ %s
+    autocmd FileType mysql setlocal commentstring=--\ %s
+augroup END
 
 autocmd BufWritePre *
     \ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
@@ -44,13 +48,16 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " TREESITTER {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "help", "javascript", "bash", "awk", "css", "gitcommit", "html", "julia", "nix", "python", "regex", "vue"},
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "bash", "awk", "css", "gitcommit", "html", "julia", "nix", "python", "regex", "vue"},
   -- ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ignore_install = { "java" }, -- List of parsers to ignore installing (for 'all')
   highlight = {
     enable = true,              -- false will disable the whole extension
     -- disable = { "c", "rust" },  -- list of language that will be disabled
     },
+  context_commentstring = {
+    enable = true
+  },
 }
 EOF
 " }}}
@@ -339,6 +346,29 @@ endif
 " Dadbod {{{
 " https://habamax.github.io/2019/09/02/use-vim-dadbod-to-query-databases.html
 "" operator mapping
+func! DBExe(...)
+	if !a:0
+		let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+		return 'g@'
+	endif
+	let sel_save = &selection
+	let &selection = "inclusive"
+	let reg_save = @@
+
+	if a:1 == 'char'	" Invoked from Visual mode, use gv command.
+		silent exe 'normal! gvy'
+	elseif a:1 == 'line'
+		silent exe "normal! '[V']y"
+	else
+		silent exe 'normal! `[v`]y'
+	endif
+
+	execute "DB " . @@
+
+	let &selection = sel_save
+	let @@ = reg_save
+endfunc
+
 xnoremap <expr> <Plug>(DBExe)     DBExe()
 nnoremap <expr> <Plug>(DBExe)     DBExe()
 nnoremap <expr> <Plug>(DBExeLine) DBExe() . '_'
