@@ -136,12 +136,13 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Gcloud setup
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/niklas/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/niklas/.local/share/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/niklas/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/niklas/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
-
 export PATH="$PATH:/opt/julia-1.7.2/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/niklashaag/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/niklashaag/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc'; fi
+
