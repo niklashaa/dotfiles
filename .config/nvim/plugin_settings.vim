@@ -348,6 +348,7 @@ endif
 " Dadbod {{{
 " https://habamax.github.io/2019/09/02/use-vim-dadbod-to-query-databases.html
 "" operator mapping
+let g:db_ui_save_location = '~/Library/CloudStorage/GoogleDrive-niklas.haag@kerith.net/My Drive/db_ui'
 func! DBExe(...)
 	if !a:0
 		let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')

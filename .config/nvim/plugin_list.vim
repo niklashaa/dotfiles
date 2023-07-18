@@ -10,6 +10,7 @@ Plug 'tpope/vim-repeat' " Repeat for vim-surround and other packages
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner' " Send commands from vim to tmux
+" Plug 'github/copilot.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "IDE like features
@@ -27,6 +28,7 @@ Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 Plug 'kristijanhusak/vim-dadbod-ui' " Interact with multiple databases
 Plug 'mechatroner/rainbow_csv' " rainbow csv
+Plug 'JuliaEditorSupport/julia-vim'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " Colorschemes

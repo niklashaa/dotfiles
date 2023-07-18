@@ -9,7 +9,7 @@
     name = Niklas Haag
 [core]
     editor = nvim
-	excludesfile = /home/niklas/.gitignore_global
+	excludesfile = /Users/niklashaag/.gitignore_global
 [credential]
 	credentialStore = keychain
 	helper = 
