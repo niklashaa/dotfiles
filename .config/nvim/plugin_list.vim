@@ -2,7 +2,6 @@ call plug#begin()
 " General plugins
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary' " Easy commenting
-Plug 'JoosepAlviste/nvim-ts-context-commentstring' " Set commentstring option based on cursor location in the file, using treesitter
 Plug 'tpope/vim-unimpaired' " Move between warnings/errors
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-surround' " Mappings for surroundings like brackets, quotes, e.t.c.
@@ -13,11 +12,12 @@ Plug 'christoomey/vim-tmux-runner' " Send commands from vim to tmux
 " Plug 'github/copilot.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+Plug 'JoosepAlviste/nvim-ts-context-commentstring' " Set commentstring option based on cursor location in the file, using treesitter
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "IDE like features
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plug 'ludovicchabant/vim-gutentags' " Manage tag files automatically
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
-Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mbbill/undotree' " Vim undo tree vizualizer
 Plug 'itchyny/lightline.vim'
 
