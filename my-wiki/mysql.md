@@ -1,6 +1,11 @@
 # MYSQL
+- InnoDB is [default engine](https://dev.mysql.com/doc/refman/8.0/en/storage-engine-setting.html)
 
+MySQL includes character set support that enables you to store data using a variety of character sets and perform comparisons according to a variety of collations.
+The default MySQL server character set and collation are utf8mb4 and utf8mb4\_0900\_ai\_ci, but you can specify character sets at the server, database, table, column, and string literal levels.
+https://dev.mysql.com/doc/refman/8.0/en/charset.html
 Set table as variable with prepared statement
+
 ```
 SET @ID_1 = (SELECT ID FROM `slider` LIMIT 0,1);
 SET @Cat = (SELECT Category FROM `slider` LIMIT 0,1);
