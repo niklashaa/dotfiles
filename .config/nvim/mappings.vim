@@ -1,6 +1,6 @@
 " KEYMAP SETTINGS
 
-let mapleader=','
+let mapleader=' '
 
 " ii is escape
 inoremap ii <esc>
@@ -18,7 +18,7 @@ vnoremap K 5k
 xnoremap ("<leader>p", "\"_dP")
 
 " turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap m<leader> :nohlsearch<CR>
 
 " Live substitution
 set inccommand=split

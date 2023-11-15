@@ -5,16 +5,20 @@
   br = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [user]
-    email = niklas.haag@yahoo.de
-    name = Niklas Haag
+  email = niklas.haag@yahoo.de
+  name = Niklas Haag
 [core]
-    editor = nvim
-	excludesfile = /Users/niklashaag/.gitignore_global
+  editor = nvim
+  excludesfile = /Users/niklashaag/.gitignore_global
 [credential]
-	credentialStore = keychain
-	helper = 
-	helper = /usr/local/bin/git-credential-manager
+  credentialStore = keychain
+  helper =
+  helper = /usr/local/bin/git-credential-manager
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+  useHttpPath = true
 [init]
-	defaultBranch = master
+  defaultBranch = master
+[diff]
+  submodule = log
+[status]
+  submodulesummary = 1

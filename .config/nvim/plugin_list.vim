@@ -23,7 +23,6 @@ Plug 'itchyny/lightline.vim'
 
 " Specific plugins
 Plug 'mattn/emmet-vim' " Makes writing HTML and CSS much easier
-Plug 'maksimr/vim-jsbeautify' " beautifies on <C-f>
 Plug 'junegunn/rainbow_parentheses.vim' " Highlight matching parantheses
 Plug 'tpope/vim-dadbod' " Interact with databases
 Plug 'kristijanhusak/vim-dadbod-ui' " Interact with multiple databases

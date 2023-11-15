@@ -8,7 +8,7 @@
 
 # Homebrew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-brew install tmux fzf yarn neovim mysql-client the_silver_searcher ctags htop
+brew install tmux fzf yarn neovim mysql-client mysql the_silver_searcher ctags htop hurl
 brew install fd ripgrep # For lazyvim
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew tap microsoft/git

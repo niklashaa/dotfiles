@@ -32,23 +32,18 @@ let g:user_emmet_leader_key='<c-a>'
 autocmd FileType html,css,vue EmmetInstall
 " }}}
 
-" #JSBEAUTIFY {{{
-" for js
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" #ALE {{{
+let g:ale_sign_column_always = 1
+let g:ale_fixers = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
 " }}}
 
 " TREESITTER {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "bash", "awk", "css", "gitcommit", "html", "julia", "nix", "python", "regex", "vue"},
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "bash", "awk", "css", "gitcommit", "html", "julia", "nix", "python", "regex", "vue", "hurl", "sql"},
   -- ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ignore_install = { "java" }, -- List of parsers to ignore installing (for 'all')
   highlight = {
@@ -64,7 +59,7 @@ EOF
 
 " #COC {{{
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar', 'coc-prettier', 'coc-json']
 let g:coc_node_path = '/Users/niklashaag/.nvm/versions/node/v16.20.0/bin/node'
 
 " Some servers have issues with backup files, see #649.
@@ -202,6 +197,9 @@ endif
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
+" Add command for formatting with prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 
@@ -226,7 +224,7 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -295,30 +293,6 @@ let g:gutentags_ctags_exclude = [
       \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
       \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
       \ ]
-" }}}
-
-" #ALE {{{
-let g:ale_sign_column_always = 1
-let g:ale_fixers = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
-let g:ale_linters = { 'javascript': ['eslint'],'vue':['eslint'], 'typescript':['eslint'] }
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
-" }}}
-
-" #VIM-VUE-PLUGIN {{{
-let g:vim_vue_plugin_config = {
-      \'syntax': {
-      \   'template': ['html'],
-      \   'script': ['javascript'],
-      \   'style': ['css'],
-      \},
-      \'full_syntax': [],
-      \'initial_indent': [],
-      \'attribute': 0,
-      \'keyword': 0,
-      \'foldexpr': 0,
-      \'debug': 0,
-      \}
 " }}}
 
 " UNDOTREE {{{
