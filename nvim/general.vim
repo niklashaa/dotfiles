@@ -1,5 +1,5 @@
 " GENERAL SETTINGS
-let $PATH = '/home/niklas/.nvm/versions/node/v16.19.0/bin:' . $PATH
+" let $PATH = '/home/niklas/.nvm/versions/node/v20.11.1/bin:' . $PATH
 set nocompatible " be iMproved, required
 set termguicolors " enable 24-bit TUI colours
 syntax enable

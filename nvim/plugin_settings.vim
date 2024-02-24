@@ -60,7 +60,6 @@ EOF
 " #COC {{{
 " CoC extensions
 let g:coc_global_extensions = ['coc-tsserver', '@yaegassy/coc-volar', 'coc-prettier', 'coc-json']
-let g:coc_node_path = '/Users/niklashaag/.nvm/versions/node/v16.20.0/bin/node'
 
 " Some servers have issues with backup files, see #649.
 set nobackup
