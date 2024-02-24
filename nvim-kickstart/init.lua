@@ -30,11 +30,13 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   -- 'tpope/vim-rhubarb',
 
+  -- 'tpope/vim-sensible',
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
   -- Move between warnings/errors
-  -- 'tpope/vim-unimpaired'
+  'tpope/vim-unimpaired',
 
   -- Mappings for surroundings like brackets, quotes, e.t.c.
   'tpope/vim-surround',
@@ -47,9 +49,6 @@ require('lazy').setup({
   'christoomey/vim-tmux-runner',
 
   -- 'github/copilot.vim'
-
-  -- Vim undo tree vizualizer
-  'mbbill/undotree',
 
   -- Interact with databases
   'tpope/vim-dadbod',
@@ -66,6 +65,13 @@ require('lazy').setup({
   -- " }}}
 
   'JuliaEditorSupport/julia-vim',
+
+  -- Vim undo tree vizualizer
+  {
+    'mbbill/undotree',
+    -- lazy load on <leader>u
+    vim.keymap.set({ 'n' }, '<F5>', '<CMD>UndotreeToggle<CR>', { silent = true }),
+  },
 
   {
     -- LSP Configuration & Plugins
@@ -271,6 +277,11 @@ require('lazy').setup({
 
 -- [[ Setting options ]]
 
+-- Tabs and spaces
+vim.o.tabstop = 2 -- number of visual spaces per TAB
+vim.o.softtabstop = 2 -- number of spaces in tab when editing
+vim.o.shiftwidth = 2  -- governs indentation via >>
+
 -- Set highlight on search
 vim.o.hlsearch = true
 
@@ -314,7 +325,9 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.splitbelow = true
 vim.o.splitright = true
--- vim.o.inccommand = 'split'
+
+-- Live substitution
+vim.o.inccommand = 'split'
 
 -- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
@@ -342,7 +355,7 @@ vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
 vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim-kickstart/init.lua<CR>', { silent = true })
 
 -- Make visual selection searchable with //
--- vim.keymap.set({ 'v' }, '//', 'y/\V<C-R>=escape(@",'/\')<CR><CR>', { silent = true })
+vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent = true })
 
 -- Command line navigation
 vim.keymap.set({ 'x' }, '<C-a>', '<Home>', { silent = true })
