@@ -23,10 +23,9 @@ fi
 
 # Use neovim as default
 if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
+  # alias vim='nvim'
+  alias vim='NVIM_APPNAME="nvim-kickstart" nvim'
 fi
-
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
