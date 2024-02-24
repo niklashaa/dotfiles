@@ -278,6 +278,10 @@ vim.o.hlsearch = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Show invisible characters
+vim.wo.list = true
+vim.wo.listchars='tab:▸ ,eol:¬,space:·'
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
