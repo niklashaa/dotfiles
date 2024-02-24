@@ -272,7 +272,7 @@ require('lazy').setup({
 -- [[ Setting options ]]
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -335,7 +335,7 @@ vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
 vim.keymap.set({ 'x' }, '<leader>p', '\"_dP', { silent = true })
 
 -- turn off search highlight
--- vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
+vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
 
 -- Apply vim configurations without restarting
 -- vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim/init.vim<CR>', { silent = true })
