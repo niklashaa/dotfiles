@@ -22,3 +22,5 @@
   submodule = log
 [status]
   submodulesummary = 1
+[maintenance]
+	repo = /Users/niklashaag/code/kerith/webapp
