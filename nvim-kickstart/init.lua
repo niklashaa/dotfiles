@@ -24,7 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
+  -- Some plugins that don't require any configuration
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -55,24 +55,9 @@ require('lazy').setup({
   -- Interact with multiple databases
   'kristijanhusak/vim-dadbod-ui',
 
-   -- Makes writing HTML and CSS much easier
-  -- 'mattn/emmet-vim',
-  -- " #EMMET {{{
-  -- let g:user_emmet_mode='a'
-  -- let g:user_emmet_install_global = 0
-  -- let g:user_emmet_leader_key='<c-a>'
-  -- autocmd FileType html,css,vue EmmetInstall
-  -- " }}}
-
   'JuliaEditorSupport/julia-vim',
 
-  -- Vim undo tree vizualizer
-  {
-    'mbbill/undotree',
-    -- lazy load on <leader>u
-    vim.keymap.set({ 'n' }, '<F5>', '<CMD>UndotreeToggle<CR>', { silent = true }),
-  },
-
+  { import = 'niklas.plugins' },
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -101,6 +86,7 @@ require('lazy').setup({
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -108,7 +94,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  -- { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -260,19 +246,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -281,9 +254,11 @@ require('lazy').setup({
 vim.o.tabstop = 2 -- number of visual spaces per TAB
 vim.o.softtabstop = 2 -- number of spaces in tab when editing
 vim.o.shiftwidth = 2  -- governs indentation via >>
+vim.o.expandtab = true -- tabs are spaces
 
 -- Set highlight on search
 vim.o.hlsearch = true
+vim.o.incsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -315,8 +290,10 @@ vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.o.timeoutlen = 300
+
+vim.o.scrolloff = 8
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -357,6 +334,14 @@ vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim-kickstart/init.lua<CR>'
 -- Make visual selection searchable with //
 vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent = true })
 
+-- Move visual selection
+-- vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv'")
+-- vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv'")
+
+
+-- Static cursor when merging lines
+vim.keymap.set({ 'n' }, 'J', 'mzJ`z')
+
 -- Command line navigation
 vim.keymap.set({ 'x' }, '<C-a>', '<Home>', { silent = true })
 vim.keymap.set({ 'x' }, '<C-e>', '<End>', { silent = true })
@@ -381,17 +366,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- [[ Highlight on yank ]]
--- -- See `:help vim.highlight.on_yank()`
--- local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
--- vim.api.nvim_create_autocmd('TextYankPost', {
---   callback = function()
---     vim.highlight.on_yank()
---   end,
---   group = highlight_group,
---   pattern = '*',
--- })
-
 -- [[ automatically rebalance windows on vim resize ]]
 vim.api.nvim_create_autocmd('VimResized',  { pattern = { "*" }, command = ":wincmd =" })
 
@@ -407,7 +381,6 @@ require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ["<esc>"] = require('telescope.actions').close,
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
@@ -474,7 +447,7 @@ end
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<c-p>', require('telescope.builtin').git_files, { desc = 'Ctrl[P]' })
-vim.keymap.set('n', '<leader>pf', require('telescope.builtin').find_files, { desc = 'Ctrl[P]' })
+vim.keymap.set('n', '<leader>pf', require('telescope.builtin').find_files, { desc = '[P]roject [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -601,22 +574,22 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-}
+-- require('which-key').register {
+--   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+--   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+--   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+--   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+--   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+--   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+--   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+--   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+-- }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
-require('which-key').register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-  ['<leader>h'] = { 'Git [H]unk' },
-}, { mode = 'v' })
+-- require('which-key').register({
+--   ['<leader>'] = { name = 'VISUAL <leader>' },
+--   ['<leader>h'] = { 'Git [H]unk' },
+-- }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -690,6 +663,7 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  preselect = 'None',
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
@@ -726,6 +700,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
+    { name = 'buffer' },
   },
 }
 
