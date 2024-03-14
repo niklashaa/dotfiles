@@ -251,8 +251,7 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-  },
-
+  }
 }, {})
 
 -- [[ Setting options ]]
@@ -300,7 +299,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
-vim.o.scrolloff = 8
+-- vim.o.scrolloff = 8
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -538,6 +537,11 @@ end, 0)
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -616,11 +620,14 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  -- zlw = {},
+  -- nixd = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
   -- julials = {},
   tsserver = {},
   volar = {},
+  eslint = {
+  },
 
   lua_ls = {
     Lua = {
