@@ -45,7 +45,7 @@ require('lazy').setup({
   'tpope/vim-repeat',
 
   'christoomey/vim-tmux-navigator',
-   -- Send commands from vim to tmux
+  -- Send commands from vim to tmux
   'christoomey/vim-tmux-runner',
 
   -- 'github/copilot.vim'
@@ -69,7 +69,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -180,7 +180,7 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
-
+  { "rose-pine/neovim", name = "rose-pine" },
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
@@ -221,7 +221,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -257,9 +257,9 @@ require('lazy').setup({
 -- [[ Setting options ]]
 
 -- Tabs and spaces
-vim.o.tabstop = 2 -- number of visual spaces per TAB
-vim.o.softtabstop = 2 -- number of spaces in tab when editing
-vim.o.shiftwidth = 2  -- governs indentation via >>
+vim.o.tabstop = 2      -- number of visual spaces per TAB
+vim.o.softtabstop = 2  -- number of spaces in tab when editing
+vim.o.shiftwidth = 2   -- governs indentation via >>
 vim.o.expandtab = true -- tabs are spaces
 
 -- Set highlight on search
@@ -272,7 +272,7 @@ vim.wo.relativenumber = true
 
 -- Show invisible characters
 vim.wo.list = true
-vim.wo.listchars='tab:▸ ,eol:¬,space:·'
+vim.wo.listchars = 'tab:▸ ,eol:¬,space:·'
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -299,7 +299,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
--- vim.o.scrolloff = 8
+vim.o.scrolloff = 1
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -373,7 +373,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ automatically rebalance windows on vim resize ]]
-vim.api.nvim_create_autocmd('VimResized',  { pattern = { "*" }, command = ":wincmd =" })
+vim.api.nvim_create_autocmd('VimResized', { pattern = { "*" }, command = ":wincmd =" })
 
 -- [[ Strip trailing whitespace from all files ]]
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -536,18 +536,7 @@ end, 0)
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
+local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -578,10 +567,20 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+  -- Potenitally use autoformat with other file types
+  -- https://github.com/nvim-lua/kickstart.nvim/pull/516/commits/d0a139abcac1156ea218497db947a16d236ba055
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  -- Use eslint, not tsserver for formatting
+  if client.name == "eslint" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end
 end
 
 -- document existing key chains
@@ -622,11 +621,13 @@ local servers = {
   -- rust_analyzer = {},
   -- zlw = {},
   -- nixd = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
   -- julials = {},
   tsserver = {},
   volar = {},
+  sqlls = {},
   eslint = {
+    filetypes = { 'javascript', 'vue' }
   },
 
   lua_ls = {
@@ -687,7 +688,7 @@ cmp.setup {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<c-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
