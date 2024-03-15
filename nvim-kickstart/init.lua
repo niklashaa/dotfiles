@@ -172,19 +172,16 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-  { "rose-pine/neovim", name = "rose-pine" },
+  -- { 'navarasu/onedark.nvim', name = "onedark" },
+  -- { "folke/tokyonight.nvim", name = "tokyonight", }
+  -- { "rose-pine/neovim", name = "rose-pine" },
+  -- { "bluz71/vim-nightfly-colors", name = "nightfly" },
+  -- { "catppuccin/nvim", name = "catppuccin" }
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
-    -- config = true,
+    lazy = false,
+    name = "gruvbox",
     config = function()
       vim.cmd.colorscheme 'gruvbox'
     end,
@@ -278,8 +275,6 @@ vim.wo.listchars = 'tab:▸ ,eol:¬,space:·'
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
@@ -324,9 +319,6 @@ vim.keymap.set({ 'i', 'v' }, 'ii', '<esc>', { silent = true })
 -- " Shortcut to edit vimrc
 vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
 
--- vim.keymap.set({ 'n', 'v' }, 'J', '5j', { silent = true })
--- vim.keymap.set({ 'n', 'v' }, 'K', '5k', { silent = true })
-
 -- yank deleted to underscore register
 vim.keymap.set({ 'x' }, '<leader>p', '\"_dP', { silent = true })
 
@@ -344,6 +336,8 @@ vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent 
 -- vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv'")
 -- vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv'")
 
+-- vim.keymap.set({ 'n', 'v' }, 'J', '5j', { silent = true })
+-- vim.keymap.set({ 'n', 'v' }, 'K', '5k', { silent = true })
 
 -- Static cursor when merging lines
 vim.keymap.set({ 'n' }, 'J', 'mzJ`z')
@@ -471,7 +465,7 @@ vim.defer_fn(function()
       -- 'c', 'cpp', 'go', 'rust', 'nix',
       'lua', 'python',
       'tsx', 'javascript', 'typescript', 'css', 'julia', 'html', 'sql', 'vue',
-      'vimdoc', 'vim', 'bash', 'gitcommit', 'hurl'
+      'vimdoc', 'vim', 'bash', 'gitcommit', 'hurl', 'markdown'
     },
 
     auto_install = false,
@@ -678,10 +672,9 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
-  preselect = 'None',
-  completion = {
-    completeopt = 'menu,menuone,noinsert',
-  },
+  -- completion = {
+  --   completeopt = 'menu,menuone,noinsert',
+  -- },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -692,6 +685,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
+
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
