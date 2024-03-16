@@ -333,8 +333,8 @@ vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim-kickstart/init.lua<CR>'
 vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent = true })
 
 -- Move visual selection
--- vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv'")
--- vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv'")
+vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv")
 
 -- vim.keymap.set({ 'n', 'v' }, 'J', '5j', { silent = true })
 -- vim.keymap.set({ 'n', 'v' }, 'K', '5k', { silent = true })
