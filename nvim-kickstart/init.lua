@@ -57,6 +57,23 @@ require('lazy').setup({
 
   'JuliaEditorSupport/julia-vim',
 
+  -- Things to try out:
+  -- Not taking
+  -- 'nvim-neorg/neorg',
+  -- Tutorial: https://www.youtube.com/watch?v=NnmRVY22Lq8
+  --
+  -- explorer
+  -- 'stevearc/oil.nvim',
+  --
+  -- markdown preview
+  -- 'iamcco/markdown-preview.nvim',
+  --
+  -- Tiling window manager
+  -- https://github.com/koekeishiya/yabai?tab=readme-ov-file
+  --
+  -- Docker alternative
+  -- https://github.com/abiosoft/colima
+
   { import = 'niklas.plugins' },
 
   {
