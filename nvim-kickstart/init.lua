@@ -185,6 +185,7 @@ require('lazy').setup({
     },
   },
 
+
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -195,120 +196,8 @@ require('lazy').setup({
   }
 }, {})
 
--- [[ Setting options ]]
-
--- Tabs and spaces
-vim.o.tabstop = 2      -- number of visual spaces per TAB
-vim.o.softtabstop = 2  -- number of spaces in tab when editing
-vim.o.shiftwidth = 2   -- governs indentation via >>
-vim.o.expandtab = true -- tabs are spaces
-
--- Set highlight on search
-vim.o.hlsearch = true
-vim.o.incsearch = true
-
--- Make line numbers default
-vim.wo.number = true
-vim.wo.relativenumber = true
-
--- Show invisible characters
-vim.wo.list = true
-vim.wo.listchars = 'tab:▸ ,eol:¬,space:·'
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
-vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
-
--- Decrease update time
-vim.o.updatetime = 50
-vim.o.timeoutlen = 300
-
-vim.o.scrolloff = 1
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
-vim.o.splitbelow = true
-vim.o.splitright = true
-
--- Live substitution
-vim.o.inccommand = 'split'
-
--- [[ Basic Keymaps ]]
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- ii is escape
-vim.keymap.set({ 'i', 'v' }, 'ii', '<esc>', { silent = true })
-
--- " Shortcut to edit vimrc
-vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
-
--- yank deleted to underscore register
-vim.keymap.set({ 'x' }, '<leader>p', '\"_dP', { silent = true })
-
--- turn off search highlight
-vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
-
--- Apply vim configurations without restarting
--- vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim/init.vim<CR>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim-kickstart/init.lua<CR>', { silent = true })
-
--- Make visual selection searchable with //
-vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent = true })
-
--- Move visual selection
-vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv")
-
--- vim.keymap.set({ 'n', 'v' }, 'J', '5j', { silent = true })
--- vim.keymap.set({ 'n', 'v' }, 'K', '5k', { silent = true })
-
--- Static cursor when merging lines
-vim.keymap.set({ 'n' }, 'J', 'mzJ`z')
-
--- Command line navigation
-vim.keymap.set({ 'x' }, '<C-a>', '<Home>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-e>', '<End>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-p>', '<Up>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-n>', '<Down>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-b>', '<Left>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-f>', '<Right>', { silent = true })
-vim.keymap.set({ 'x' }, '<M-b>', '<S-Left>', { silent = true })
-vim.keymap.set({ 'x' }, '<M-f>', '<S-Right>', { silent = true })
-
--- zoom a vim pane, <C-w>= to re-balance
-vim.keymap.set({ 'x' }, '<leader>-', ':wincmd _<cr>:wincmd |<cr>', { silent = true })
-vim.keymap.set({ 'x' }, '<leader>=', ':wincmd =<cr>', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+require("options")
+require("keymaps")
 
 -- [[ automatically rebalance windows on vim resize ]]
 vim.api.nvim_create_autocmd('VimResized', { pattern = { "*" }, command = ":wincmd =" })
