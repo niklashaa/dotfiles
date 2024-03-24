@@ -110,22 +110,6 @@ require('lazy').setup({
     },
   },
 
-  -- { 'navarasu/onedark.nvim', name = "onedark" },
-  -- { "folke/tokyonight.nvim", name = "tokyonight", }
-  -- { "rose-pine/neovim", name = "rose-pine" },
-  -- { "bluz71/vim-nightfly-colors", name = "nightfly" },
-  -- { "catppuccin/nvim", name = "catppuccin" }
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    lazy = false,
-    name = "gruvbox",
-    config = function()
-      vim.cmd.colorscheme 'gruvbox'
-    end,
-    opts = {},
-  },
-
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
