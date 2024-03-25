@@ -1,11 +1,11 @@
 -- See `:help nvim-treesitter`
-  return {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
+return {
+  -- Highlight, edit, and navigate code
+  'nvim-treesitter/nvim-treesitter',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  build = ':TSUpdate',
   -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
   config = vim.defer_fn(function ()
     local treesitter = require("nvim-treesitter.configs")
