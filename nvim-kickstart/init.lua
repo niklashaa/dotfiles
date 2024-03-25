@@ -69,7 +69,6 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- { import = 'kickstart.plugins' },
   { import = 'niklas.plugins' },
 }, {
   ui = {
