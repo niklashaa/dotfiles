@@ -22,41 +22,23 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
-  -- Some plugins that don't require any configuration
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
+  'tpope/vim-fugitive', -- Git related plugins
   -- 'tpope/vim-rhubarb',
-
   -- 'tpope/vim-sensible',
-
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
-  -- Move between warnings/errors
-  'tpope/vim-unimpaired',
-
-  -- Mappings for surroundings like brackets, quotes, e.t.c.
-  'tpope/vim-surround',
-
-  -- Repeat for vim-surround and other packages
-  'tpope/vim-repeat',
-
-  'christoomey/vim-tmux-navigator',
-  -- Send commands from vim to tmux
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-unimpaired', -- Move between warnings/errors
+  'tpope/vim-surround', -- Mappings for surroundings like brackets, quotes, e.t.c.
+  'tpope/vim-repeat', -- Repeat for vim-surround and other packages
+  'christoomey/vim-tmux-navigator', -- Send commands from vim to tmux
   'christoomey/vim-tmux-runner',
-
-  -- 'github/copilot.vim'
-
-  -- Interact with databases
-  'tpope/vim-dadbod',
-  -- Interact with multiple databases
-  'kristijanhusak/vim-dadbod-ui',
-
+  'tpope/vim-dadbod', -- Interact with databases
+  'kristijanhusak/vim-dadbod-ui', -- Interact with multiple databases
   'JuliaEditorSupport/julia-vim',
 
   -- Things to try out:
-  -- Not taking
+  -- 'github/copilot.vim'
+
+  -- Note taking
   -- 'nvim-neorg/neorg',
   -- Tutorial: https://www.youtube.com/watch?v=NnmRVY22Lq8
   --
@@ -85,24 +67,44 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- { import = 'kickstart.plugins' },
   { import = 'niklas.plugins' },
-}, {})
+}, {
+  ui = {
+    -- If you are using a Nerd Font: set icons to an empty table which will use the
+    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
+})
 
-require("options")
-require("keymaps")
+require 'options'
+require 'keymaps'
 
 -- [[ automatically rebalance windows on vim resize ]]
 vim.api.nvim_create_autocmd('VimResized', {
-  pattern = { "*" },
-  command = ":wincmd =" }
-)
+  pattern = { '*' },
+  command = ':wincmd =',
+})
 
 -- [[ Strip trailing whitespace from all files ]]
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern = { '*' },
   command = [[%s/\s\+$//e]],
 })
 
