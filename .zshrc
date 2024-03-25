@@ -25,8 +25,6 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -108,9 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
 alias cl='clear'
-alias rc='ruby -c'
 alias gci='git commit'
 alias gitst='git status'
+alias gdt='git difftool'
+alias glgt='f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff "$@"; }; f'
+alias gsht='f() { GIT_EXTERNAL_DIFF=difft git show "$@" --ext-diff; }; f'
 
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'

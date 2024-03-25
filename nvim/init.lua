@@ -1,3 +1,7 @@
+-- Repos for comparison
+-- https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
+-- https://github.com/dmmulroy/kickstart.nix/tree/main/config/nvim
+
 -- Using a namespaced folder for plugins like plugins/niklas avoids namespacing issues
 -- For instance having a treesitter config file named 'treesitter.lua' in your lua directory may cause issues
 -- as the 'treesitter' namespace is already in use by the treesitter plugin.

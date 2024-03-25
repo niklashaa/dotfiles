@@ -17,10 +17,17 @@
 [credential "https://dev.azure.com"]
   useHttpPath = true
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [diff]
+  tool = difftastic
   submodule = log
 [status]
   submodulesummary = 1
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [maintenance]
-	repo = /Users/niklashaag/code/kerith/webapp
+  repo = /Users/niklashaag/code/kerith/webapp
