@@ -1,5 +1,6 @@
 vim/plugged
 vim/.netrwhist
 vim/autoload/
+kickstart.nvim
 tags*
 */dadbods.vim
