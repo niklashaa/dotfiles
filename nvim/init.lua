@@ -34,6 +34,9 @@ require('lazy').setup({
   'tpope/vim-dadbod', -- Interact with databases
   'kristijanhusak/vim-dadbod-ui', -- Interact with multiple databases
   'JuliaEditorSupport/julia-vim',
+  -- "gc" to comment visual regions/lines
+  { 'numToStr/Comment.nvim', opts = {}, lazy = false },
+  { import = 'niklas.plugins' },
 
   -- Things to try out:
   -- 'github/copilot.vim'
@@ -56,20 +59,6 @@ require('lazy').setup({
   --
   -- Harpoon
   -- 'ThePrimeagen/harpoon'
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
-  { import = 'niklas.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
