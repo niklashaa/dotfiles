@@ -35,8 +35,6 @@ require('lazy').setup({
   'tpope/vim-repeat', -- Repeat for vim-surround and other packages
   'christoomey/vim-tmux-navigator', -- Send commands from vim to tmux
   'christoomey/vim-tmux-runner',
-  'tpope/vim-dadbod', -- Interact with databases
-  'kristijanhusak/vim-dadbod-ui', -- Interact with multiple databases
   'JuliaEditorSupport/julia-vim',
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {}, lazy = false },
