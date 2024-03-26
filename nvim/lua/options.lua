@@ -1,7 +1,7 @@
 -- Tabs and spaces
-vim.o.tabstop = 2      -- number of visual spaces per TAB
-vim.o.softtabstop = 2  -- number of spaces in tab when editing
-vim.o.shiftwidth = 2   -- governs indentation via >>
+vim.o.tabstop = 2 -- number of visual spaces per TAB
+vim.o.softtabstop = 2 -- number of spaces in tab when editing
+vim.o.shiftwidth = 2 -- governs indentation via >>
 vim.o.expandtab = true -- tabs are spaces
 
 -- Set highlight on search
@@ -42,7 +42,7 @@ vim.o.timeoutlen = 300
 vim.o.scrolloff = 1
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+-- vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
