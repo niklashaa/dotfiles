@@ -12,15 +12,19 @@ return {
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
+
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
+      json = { 'prettier' },
+      yaml = { 'prettier' },
+      markdown = { 'prettier' },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
-      javascript = { { "eslint", "prettierd", "prettier" } },
-      vue = { { "eslint", "prettierd", "prettier" } },
+      javascript = { 'eslint', 'prettierd', 'prettier' },
+      vue = { 'eslint', 'prettierd', 'prettier' },
     },
   },
 }
