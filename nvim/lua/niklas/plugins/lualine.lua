@@ -11,6 +11,7 @@ return {
       section_separators = '',
     },
     sections = {
+      lualine_b = {}, -- hide branch name
       lualine_c = {
         { 'filename', path = 1 },
       },
