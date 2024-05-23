@@ -51,3 +51,9 @@ vim.o.splitright = true
 
 -- Live substitution
 vim.o.inccommand = 'split'
+
+-- Folding
+vim.o.foldenable = true -- enable folding
+vim.o.foldmethod = 'indent' -- fold based on indent level
+vim.o.foldlevelstart = 10 -- open most folds by default
+vim.o.foldnestmax = 10 -- 10 nested fold max

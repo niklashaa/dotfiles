@@ -1,11 +1,16 @@
 return {
   -- Interact with multiple databases
-  'kristijanhusak/vim-dadbod-ui',
-  dependencies = {
-    'tpope/vim-dadbod', -- Interact with databases
-  },
-  config = function()
-    vim.g.db_ui_save_location = '~/Library/CloudStorage/GoogleDrive-niklas.haag@kerith.net/My Drive/db_ui'
-    vim.g.dbs = require 'dadbods'
-  end,
+  'tpope/vim-dadbod',
+  'kristijanhusak/vim-dadbod-completion',
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    config = function()
+      vim.g.db_ui_save_location = '~/Library/CloudStorage/GoogleDrive-niklas.haag@kerith.net/My Drive/db_ui'
+      vim.g.dbs = require 'dadbods'
+    end,
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 0
+    end,
+  }
 }

@@ -7,17 +7,16 @@ vim.keymap.set({ 'i', 'v' }, 'ii', '<esc>', { silent = true })
 vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
 
 -- yank deleted to underscore register
-vim.keymap.set({ 'x' }, '<leader>p', '\"_dP', { silent = true })
+vim.keymap.set({ 'x' }, '<leader>p', '"_dP', { silent = true })
 
 -- turn off search highlight
 vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
 
 -- Apply vim configurations without restarting
--- vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim/init.vim<CR>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim-kickstart/init.lua<CR>', { silent = true })
+vim.keymap.set({ 'n' }, '<leader>r', ':so ~/.config/nvim/init.vim<CR>', { silent = true })
 
 -- Make visual selection searchable with //
-vim.keymap.set({ 'v' }, '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', { silent = true })
+vim.keymap.set({ 'v' }, '//', "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { silent = true })
 
 -- Move visual selection
 vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv")

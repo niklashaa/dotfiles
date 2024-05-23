@@ -10,6 +10,8 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       json = { 'prettier' },
+      html = { 'djlint' },
+      sql = { 'pg_format' },
       yaml = { 'prettier' },
       markdown = { 'prettier' },
       -- Sub-list to tell conform to run *until* a formatter is found.
