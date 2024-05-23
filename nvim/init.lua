@@ -83,9 +83,6 @@ require('lazy').setup({
   },
 })
 
-require 'options'
-require 'keymaps'
-
 -- [[ automatically rebalance windows on vim resize ]]
 vim.api.nvim_create_autocmd('VimResized', {
   pattern = { '*' },
