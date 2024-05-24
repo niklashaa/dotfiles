@@ -1,5 +1,3 @@
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- ii is escape
@@ -32,14 +30,11 @@ vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set({ 'n' }, 'J', 'mzJ`z')
 
 -- Command line navigation
-vim.keymap.set({ 'x' }, '<C-a>', '<Home>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-e>', '<End>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-p>', '<Up>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-n>', '<Down>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-b>', '<Left>', { silent = true })
-vim.keymap.set({ 'x' }, '<C-f>', '<Right>', { silent = true })
-vim.keymap.set({ 'x' }, '<M-b>', '<S-Left>', { silent = true })
-vim.keymap.set({ 'x' }, '<M-f>', '<S-Right>', { silent = true })
+vim.keymap.set({ 'c' }, '<C-e>', '<End>')
+vim.keymap.set({ 'c' }, '<C-a>', '<Home>')
+vim.keymap.set({ 'c' }, '<C-p>', '<Up>')
+vim.keymap.set({ 'c' }, '<C-n>', '<Down>')
+vim.keymap.set({ 'c' }, '<C-b>', '<S-Left>')
 
 -- zoom a vim pane, <C-w>= to re-balance
 vim.keymap.set({ 'x' }, '<leader>-', ':wincmd _<cr>:wincmd |<cr>', { silent = true })
