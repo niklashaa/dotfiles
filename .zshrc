@@ -1,3 +1,5 @@
+# zmodload zsh/zprof # Start profiling
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
@@ -141,7 +143,6 @@ export NVM_DIR="$HOME/.nvm"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="$PATH:/opt/julia-1.7.2/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/niklashaag/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/niklashaag/google-cloud-sdk/path.zsh.inc'; fi
@@ -150,3 +151,5 @@ if [ -f '/Users/niklashaag/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nikl
 if [ -f '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc'; fi
 
 # sudo ln -s /Applications/Julia-1.8.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
+
+# zprof # Stop profiling

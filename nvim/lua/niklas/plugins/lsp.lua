@@ -71,11 +71,8 @@ return {
     -- https://mason-registry.dev/registry/list
     local servers = {
       julials = {},
-      tsserver = {},
-      eslint_d = {}, -- eslint but faster -- eslint but faster
-      volar = {}, -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
       sqlls = {},
-      lua_ls = { -- https://luals.github.io/wiki/settings/
+      lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
@@ -83,6 +80,7 @@ return {
           diagnostics = { disable = { 'missing-fields' } },
         },
       },
+      eslint_d = {}, -- eslint but faster
     }
 
     require('mason').setup()
@@ -99,11 +97,38 @@ return {
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           require('lspconfig')[server_name].setup(server)
+        end,
+        -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
+        volar = function()
+          require('lspconfig').volar.setup {}
+        end,
+        tsserver = function()
+          local vue_typescript_plugin = require('mason-registry').get_package('vue-language-server'):get_install_path()
+            .. '/node_modules/@vue/language-server'
+            .. '/node_modules/@vue/typescript-plugin'
+
+          require('lspconfig').tsserver.setup {
+            init_options = {
+              plugins = {
+                {
+                  name = '@vue/typescript-plugin',
+                  location = vue_typescript_plugin,
+                  languages = { 'javascript', 'typescript', 'vue' },
+                },
+              },
+            },
+            filetypes = {
+              'javascript',
+              'javascriptreact',
+              'javascript.jsx',
+              'typescript',
+              'typescriptreact',
+              'typescript.tsx',
+              'vue',
+            },
+          }
         end,
       },
     }

@@ -8,12 +8,37 @@
 
 # Homebrew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-brew install tmux fzf yarn neovim mysql-client mysql the_silver_searcher ctags htop hurl
+
+brew install tmux fzf yarn neovim htop hurl
+
+# Environment
+
+## Alactritty
+## https://github.com/alacritty/alacritty/issues/6500
+brew install --cask alacritty --no-quarantine
+
+## Nerd fonts
+brew install font-hack-nerd-font
+# brew install font-jetbrains-mono-nerd-font
+
+## Starship (prompt automation)
+curl -sS https://starship.rs/install.sh | sh
+
+# Databases
+# brew install mysql-client mysql
+brew install postgresql
+
+# Search
 brew install fd ripgrep # For lazyvim
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+# CTags
+# brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+# brew install ctags
+
+# Git
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
-brew install --cask vscodium # Troubleshooting: https://github.com/VSCodium/vscodium/wiki/Troubleshooting#macos
+# brew install --cask vscodium # Troubleshooting: https://github.com/VSCodium/vscodium/wiki/Troubleshooting#macos
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -26,14 +51,6 @@ npm install -g typescript
 ### firebase login might only work with Chrome
 ### => firebase login --no-localhost, copy url into chrome if chrome is not default
 npm install -g firebase-tools
-
-# Environment
-## Starship
-curl -sS https://starship.rs/install.sh | sh
-
-## Nerd fonts
-brew install font-hack-nerd-font
-# brew install font-jetbrains-mono-nerd-font
 
 # Julia
 # 1) Install julia, Add to Applications
