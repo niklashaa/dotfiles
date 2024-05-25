@@ -5,6 +5,9 @@ return {
   dependencies = {
     {
       'L3MON4D3/LuaSnip',
+      build = (function()
+        return 'make install_jsregexp'
+      end)(),
       dependencies = {
         {
           'rafamadriz/friendly-snippets',
@@ -29,7 +32,11 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'buffer' },
+        { name = 'buffer', option = {
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end,
+        } },
       },
       snippet = {
         expand = function(args)
