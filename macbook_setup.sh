@@ -27,8 +27,13 @@ npm install -g typescript
 ### => firebase login --no-localhost, copy url into chrome if chrome is not default
 npm install -g firebase-tools
 
+# Environment
 ## Starship
 curl -sS https://starship.rs/install.sh | sh
+
+## Nerd fonts
+brew install font-hack-nerd-font
+# brew install font-jetbrains-mono-nerd-font
 
 # Julia
 # 1) Install julia, Add to Applications
