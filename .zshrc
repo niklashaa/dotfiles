@@ -72,14 +72,19 @@ DISABLE_UPDATE_PROMPT="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm yarn ag kubectl gcloud)
+plugins=(
+  git
+  npm
+  yarn
+  ag
+  kubectl
+  gcloud
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(starship init zsh)"
 # User configuration
 
 # Always stay in tmux

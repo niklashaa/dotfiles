@@ -27,6 +27,9 @@ npm install -g typescript
 ### => firebase login --no-localhost, copy url into chrome if chrome is not default
 npm install -g firebase-tools
 
+## Starship
+curl -sS https://starship.rs/install.sh | sh
+
 # Julia
 # 1) Install julia, Add to Applications
 # 2) Link julia bin to path
