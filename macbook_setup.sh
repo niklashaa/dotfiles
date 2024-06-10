@@ -27,6 +27,7 @@ curl -sS https://starship.rs/install.sh | sh
 # Databases
 # brew install mysql-client mysql
 brew install postgresql
+brew services start postgresql@15
 
 # Search
 brew install fd ripgrep # For lazyvim
