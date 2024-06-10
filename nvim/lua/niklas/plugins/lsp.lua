@@ -1,8 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- Automatically install LSPs and related tools to stdpath for Neovim
-    'williamboman/mason.nvim',
+    { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -15,12 +14,6 @@ return {
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
-    -- :help lsp-vs-treesitter
-
-    --  This function gets run when an LSP attaches to a particular buffer.
-    --    That is to say, every time a new file is opened that is associated with
-    --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-    --    function will be executed to configure the current buffer
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
@@ -38,20 +31,6 @@ return {
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-        -- Highlight references of the word under your cursor
-        -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-        -- if client and client.server_capabilities.documentHighlightProvider then
-        --   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-        --     buffer = event.buf,
-        --     callback = vim.lsp.buf.document_highlight,
-        --   })
-        --
-        --   vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-        --     buffer = event.buf,
-        --     callback = vim.lsp.buf.clear_references,
-        --   })
-        -- end
       end,
     })
 
@@ -70,8 +49,9 @@ return {
 
     -- https://mason-registry.dev/registry/list
     local servers = {
-      julials = {},
+      -- julials = {},
       sqlls = {},
+      fixjson = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

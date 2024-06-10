@@ -1,7 +1,6 @@
 return {
   -- Interact with multiple databases
   'tpope/vim-dadbod',
-  'kristijanhusak/vim-dadbod-completion',
   {
     'kristijanhusak/vim-dadbod-ui',
     config = function()
@@ -12,5 +11,5 @@ return {
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 0
     end,
-  }
+  },
 }
