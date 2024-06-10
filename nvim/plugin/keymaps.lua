@@ -1,7 +1,7 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- ii is escape
-vim.keymap.set({ 'i', 'v' }, 'ii', '<esc>', { silent = true })
+-- jj is escape
+vim.keymap.set({ 'i' }, 'jj', '<esc>', { silent = true })
 
 -- " Shortcut to edit vimrc
 vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
