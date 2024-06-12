@@ -152,4 +152,5 @@ if [ -f '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc' ]; then . '/User
 
 # sudo ln -s /Applications/Julia-1.8.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 # zprof # Stop profiling

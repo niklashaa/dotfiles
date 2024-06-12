@@ -24,6 +24,9 @@ brew install font-hack-nerd-font
 ## Starship (prompt automation)
 curl -sS https://starship.rs/install.sh | sh
 
+## Tiling window manager
+brew install --cask nikitabobko/tap/aerospace
+
 # Databases
 # brew install mysql-client mysql
 brew install postgresql
