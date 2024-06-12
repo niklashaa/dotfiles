@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a dotfiles=(".tmux.conf" ".zshrc" ".gitconfig" ".gitignore_global") #Declare dotfiles as array
+declare -a dotfiles=(".tmux.conf" ".zshrc" ".gitconfig" ".gitignore_global" ".aerospace.toml") #Declare dotfiles as array
 DOTFILEDIR=$HOME/.dotfiles
 CONFIGDIR=$HOME/.config
 
