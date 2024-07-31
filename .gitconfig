@@ -12,10 +12,8 @@
   excludesfile = /Users/niklashaag/.gitignore_global
 [credential]
   credentialStore = keychain
-  helper =
-  helper = /usr/local/bin/git-credential-manager
-[credential "https://dev.azure.com"]
-  useHttpPath = true
+	helper =
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
   defaultBranch = main
 [diff]
@@ -23,6 +21,8 @@
   submodule = log
 [status]
   submodulesummary = 1
+[pull]
+  rebase = true
 [difftool]
   prompt = false
 [difftool "difftastic"]
@@ -31,3 +31,5 @@
   difftool = true
 [maintenance]
   repo = /Users/niklashaag/code/kerith/webapp
+[credential "https://dev.azure.com"]
+	useHttpPath = true
