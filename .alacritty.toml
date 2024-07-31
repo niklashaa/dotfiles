@@ -1,0 +1,22 @@
+# themes from https://github.com/alacritty/alacritty-theme
+
+# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+
+[font]
+size = 12
+
+[font.normal]
+family = "Hack Nerd Font"
+
+[window]
+decorations = "none"
+
+[window.padding]
+x = 7
+y = 0
+
+# https://github.com/alacritty/alacritty/issues/34
+[keyboard]
+bindings = [
+  { mods = "Control", key = "F", action = "ToggleFullscreen" },
+]
