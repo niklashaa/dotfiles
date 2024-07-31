@@ -9,6 +9,9 @@ export GCM_CREDENTIAL_STORE=keychain
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# https://stackoverflow.com/questions/62931101/i-have-multiple-files-of-zcompdump-why-do-i-have-multiple-files-of-these
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
 set -o vi
 
 # Set name of the theme to load --- if set to "random", it will
@@ -78,7 +81,6 @@ plugins=(
   git
   npm
   yarn
-  ag
   kubectl
   gcloud
   zsh-autosuggestions
