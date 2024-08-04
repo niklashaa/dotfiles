@@ -47,9 +47,6 @@ require('lazy').setup({
   -- 'nvim-neorg/neorg',
   -- Tutorial: https://www.youtube.com/watch?v=NnmRVY22Lq8
   --
-  -- explorer
-  -- 'stevearc/oil.nvim',
-  --
   -- markdown preview
   -- 'iamcco/markdown-preview.nvim',
   --
