@@ -1,6 +1,8 @@
 # themes from https://github.com/alacritty/alacritty-theme
 
 # import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+[mouse]
+hide_when_typing = true
 
 [font]
 size = 12
