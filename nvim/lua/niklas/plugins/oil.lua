@@ -19,7 +19,7 @@ return {
       ['<CR>'] = 'actions.select',
       ['<C-v>'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
       ['<C-h>'] = false,
-      ['<M-h>'] = { 'actions.select', opts = { horizontal = true }, desc = 'Open the entry in a horizontal split' },
+      ['<C-x>'] = { 'actions.select', opts = { horizontal = true }, desc = 'Open the entry in a horizontal split' }, -- Not working
       ['<C-t>'] = { 'actions.select', opts = { tab = true }, desc = 'Open the entry in new tab' },
       ['<C-p>'] = 'actions.preview',
       ['<C-c>'] = 'actions.close',

@@ -1,3 +1,4 @@
+vim.api.nvim_create_user_command('Ex', 'Oil', { desc = 'Open file browser' })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- jj is escape
@@ -5,6 +6,8 @@ vim.keymap.set({ 'i' }, 'jj', '<esc>', { silent = true })
 
 -- " Shortcut to edit vimrc
 vim.keymap.set({ 'n' }, '<leader>v', ':vsp $MYVIMRC<CR>', { silent = true })
+
+vim.keymap.set({ 'n' }, '<M-P>', ':vsp .', { silent = true })
 
 -- yank deleted to underscore register
 vim.keymap.set({ 'x' }, '<leader>p', '"_dP', { silent = true })

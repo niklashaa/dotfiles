@@ -50,17 +50,14 @@ require('lazy').setup({
   -- markdown preview
   -- 'iamcco/markdown-preview.nvim',
   --
-  -- Tiling window manager
-  -- https://github.com/koekeishiya/yabai?tab=readme-ov-file
-  --
   -- Docker alternative
   -- https://github.com/abiosoft/colima
   --
   -- Harpoon
   -- 'ThePrimeagen/harpoon'
   --
-  -- Obsidian
-  -- 'epwalsh/obsidian.nvim'
+  -- Expand region
+  -- https://github.com/terryma/vim-expand-region
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table

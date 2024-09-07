@@ -16,6 +16,9 @@ vim.wo.relativenumber = true
 vim.wo.list = true
 vim.wo.listchars = 'tab:▸ ,eol:¬,space:·'
 
+-- https://stackoverflow.com/questions/6852763/how-to-make-vim-quickfix-list-launch-files-in-a-new-tab#6853779
+vim.o.switchbuf = 'usetab,uselast'
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
