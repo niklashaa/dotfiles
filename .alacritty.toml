@@ -13,12 +13,17 @@ family = "Hack Nerd Font"
 [window]
 decorations = "none"
 
+# "OnlyLeft" | "OnlyRight" | "Both" | "None" # (macos only)
+# option_as_alt = "Both"
+
 [window.padding]
 x = 7
 y = 0
 
-# https://github.com/alacritty/alacritty/issues/34
 [keyboard]
 bindings = [
+  # https://github.com/alacritty/alacritty/issues/34
   { mods = "Control", key = "F", action = "ToggleFullscreen" },
+  { mods = "Control", key = "N", action = "CreateNewWindow" },
+  # { mods = "Control", key = "6", chars = "\u005E" },
 ]
