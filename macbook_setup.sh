@@ -27,6 +27,15 @@ curl -sS https://starship.rs/install.sh | sh
 ## Tiling window manager
 brew install --cask nikitabobko/tap/aerospace
 
+## Better autocompletion
+brew install zsh-autosuggestions
+echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
+brew install zsh-syntax-highlighting
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+
+brew install eza
+
 # Databases
 # brew install mysql-client mysql
 brew install postgresql

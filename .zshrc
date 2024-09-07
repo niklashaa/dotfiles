@@ -115,6 +115,7 @@ eval "$(starship init zsh)"
 # For a full list of active aliases, run `alias`.
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
 alias cl='clear'
+alias ls="eza --icons=always"
 alias gci='git commit'
 alias gitst='git status'
 alias gdt='git difftool'
@@ -143,7 +144,6 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Gcloud setup
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export PATH="$PATH:/opt/julia-1.7.2/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -152,7 +152,16 @@ if [ -f '/Users/niklashaag/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nikl
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklashaag/google-cloud-sdk/completion.zsh.inc'; fi
 
-# sudo ln -s /Applications/Julia-1.8.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
-
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 # zprof # Stop profiling
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/niklashaag/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
