@@ -54,10 +54,26 @@ return {
       fixjson = {},
       lua_ls = {
         Lua = {
-          workspace = { checkThirdParty = false },
+          runtime = {
+            -- Tell the language server which version of Lua you're using
+            -- (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file('', true),
+            checkThirdParty = false,
+          },
+          diagnostics = {
+            -- Ignore Lua_LS's noisy `missing-fields` warnings
+            disable = { 'missing-fields' },
+            -- Get the language server to recognize the `vim` global
+            globals = {
+              'vim',
+              'require',
+            },
+          },
           telemetry = { enable = false },
-          -- Ignore Lua_LS's noisy `missing-fields` warnings
-          diagnostics = { disable = { 'missing-fields' } },
         },
       },
       eslint_d = {}, -- eslint but faster
