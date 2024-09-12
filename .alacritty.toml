@@ -11,10 +11,8 @@ size = 12
 family = "Hack Nerd Font"
 
 [window]
-decorations = "none"
-
-# "OnlyLeft" | "OnlyRight" | "Both" | "None" # (macos only)
-# option_as_alt = "Both"
+decorations = "Buttonless"
+opacity = 0.8
 
 [window.padding]
 x = 7
