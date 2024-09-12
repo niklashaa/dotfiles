@@ -21,7 +21,8 @@ return {
       ['<C-h>'] = false,
       ['<C-x>'] = { 'actions.select', opts = { horizontal = true }, desc = 'Open the entry in a horizontal split' }, -- Not working
       ['<C-t>'] = { 'actions.select', opts = { tab = true }, desc = 'Open the entry in new tab' },
-      ['<C-p>'] = 'actions.preview',
+      -- ['<C-p>'] = 'actions.preview',
+      ['<C-p>'] = false,
       ['<C-c>'] = 'actions.close',
       ['<C-l>'] = false, -- ['<C-l>'] = 'actions.refresh',
       ['-'] = 'actions.parent',
