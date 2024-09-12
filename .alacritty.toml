@@ -22,8 +22,8 @@ y = 0
 
 [keyboard]
 bindings = [
-  # https://github.com/alacritty/alacritty/issues/34
   { mods = "Control", key = "F", action = "ToggleFullscreen" },
   { mods = "Control", key = "N", action = "CreateNewWindow" },
-  # { mods = "Control", key = "6", chars = "\u005E" },
+  # Make CTRL + 6 work https://github.com/alacritty/alacritty/issues/8038#issuecomment-2346411632
+  { mods = "Control", key = "Key6", chars = "\u001e" },
 ]
