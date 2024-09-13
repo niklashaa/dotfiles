@@ -1,6 +1,5 @@
-# themes from https://github.com/alacritty/alacritty-theme
+# https://alacritty.org/config-alacritty.html
 
-# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 [mouse]
 hide_when_typing = true
 
@@ -13,6 +12,7 @@ family = "Hack Nerd Font"
 [window]
 decorations = "Buttonless"
 opacity = 0.8
+option_as_alt = "OnlyLeft" # "Both"
 
 [window.padding]
 x = 7
@@ -20,8 +20,15 @@ y = 0
 
 [keyboard]
 bindings = [
-  { mods = "Control", key = "F", action = "ToggleFullscreen" },
-  { mods = "Control", key = "N", action = "CreateNewWindow" },
+  # { mods = "Control", key = "F", action = "ToggleFullscreen" },
+  # { mods = "Control", key = "N", action = "CreateNewWindow" },
+
+  # In chars
+  # YAML expects hex escape sequences
+  # TOML expects Unicode escape sequences
   # Make CTRL + 6 work https://github.com/alacritty/alacritty/issues/8038#issuecomment-2346411632
   { mods = "Control", key = "Key6", chars = "\u001e" },
 ]
+
+# themes from https://github.com/alacritty/alacritty-theme
+# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
