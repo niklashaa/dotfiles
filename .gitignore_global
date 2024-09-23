@@ -11,3 +11,4 @@ coverage/
 todo.txt
 .cfg
 *.env
+*.dump
