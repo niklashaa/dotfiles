@@ -6,6 +6,10 @@
 ## KeepassXC
 ## Spotify
 
+## UnnaturalScrollWheels
+## Or install scroll reverser
+# https://techwiser.com/set-different-scroll-direction-for-mouse-and-trackpad-on-macos/
+
 # Homebrew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
