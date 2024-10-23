@@ -10,7 +10,7 @@ return {
 
     formatters_by_ft = {
       lua = { 'stylua' },
-      json = { 'fixjson' },
+      json = { 'eslint_d' },
       -- sql = { 'sqlfmt', 'sql-formatter' },
       yaml = { 'prettierd' },
       markdown = { 'prettierd' },
