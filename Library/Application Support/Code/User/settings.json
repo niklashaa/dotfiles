@@ -6,7 +6,7 @@
     "*.vue": "vue"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -21,16 +21,11 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  {
-      "vscode-neovim.compositeKeys": {
-          "jj": {
-              "command": "vscode-neovim.escape",
-          },
-      },
-  }
-
-
-
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    }
+  },
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -42,35 +37,20 @@
   },
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "m",
-        "<leader>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["m", "<leader>"],
+      "commands": [":nohl"]
     }
   ],
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.visualModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
-  ],
+  ]
 }
