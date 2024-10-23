@@ -1,14 +1,22 @@
 {
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "editor.lineNumbers": "relative",
   "files.associations": {
-    "*.vue": "html"
+    "*.vue": "vue"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
-  "vetur.validation.template": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "always"
   },
-  "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -21,46 +29,19 @@
   "vim.normalModeKeyBindings": [
     {
       "before": [
-        ",",
+        "m",
         "<leader>"
       ],
       "commands": [
         ":nohl"
-      ]
-    },
-    {
-      "before": [
-        "g",
-        "j"
-      ],
-      "after": [
-        "J"
-      ]
-    },
-    {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "k"
       ]
     }
   ],
   "vim.insertModeKeyBindings": [
     {
       "before": [
-        "i",
-        "i"
+        "j",
+        "j"
       ],
       "after": [
         "<Esc>"
@@ -70,46 +51,16 @@
   "vim.visualModeKeyBindings": [
     {
       "before": [
-        "i",
-        "i"
+        "j",
+        "j"
       ],
       "after": [
         "<Esc>"
       ]
-    },
-    {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "k"
-      ]
-    },
-    {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
-    },
-    {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
     }
   ],
+  "prettier.trailingComma": "all",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 }
