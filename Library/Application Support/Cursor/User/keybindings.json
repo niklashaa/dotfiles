@@ -1,0 +1,21 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+w shift+l",
+        "command": "workbench.action.positionPanelRight"
+    },
+    {
+        "key": "shift+5",
+        "command": "editor.emmet.action.matchTag"
+    },
+    {
+        "key": "shift+5",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    }
+]

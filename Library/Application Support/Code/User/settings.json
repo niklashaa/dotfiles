@@ -1,6 +1,7 @@
 {
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "editor.lineNumbers": "relative",
+  "prettier.trailingComma": "all",
   "files.associations": {
     "*.vue": "vue"
   },
@@ -17,6 +18,19 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
   },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  {
+      "vscode-neovim.compositeKeys": {
+          "jj": {
+              "command": "vscode-neovim.escape",
+          },
+      },
+  }
+
+
+
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -59,8 +73,4 @@
       ]
     }
   ],
-  "prettier.trailingComma": "all",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
 }
