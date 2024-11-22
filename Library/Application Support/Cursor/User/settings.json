@@ -52,5 +52,6 @@
       "before": ["j", "j"],
       "after": ["<Esc>"]
     }
-  ]
+  ],
+  "search.smartCase": true
 }

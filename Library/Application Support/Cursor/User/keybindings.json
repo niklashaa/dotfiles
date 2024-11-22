@@ -1,21 +1,44 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "ctrl+w shift+l",
-        "command": "workbench.action.positionPanelRight"
-    },
-    {
-        "key": "shift+5",
-        "command": "editor.emmet.action.matchTag"
-    },
-    {
-        "key": "shift+5",
-        "command": "editor.action.jumpToBracket",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "shift+cmd+\\",
-        "command": "-editor.action.jumpToBracket",
-        "when": "editorTextFocus"
-    }
+  {
+    "key": "ctrl+w shift+l",
+    "command": "workbench.action.positionPanelRight"
+  },
+  {
+    "key": "shift+5",
+    "command": "editor.emmet.action.matchTag"
+  },
+  {
+    "key": "shift+cmd+\\",
+    "command": "-editor.action.jumpToBracket",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+5",
+    "command": "editor.action.jumpToBracket"
+  },
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "cmd+1",
+    "command": "-workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
+  }
 ]
