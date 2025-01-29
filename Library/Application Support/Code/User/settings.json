@@ -53,5 +53,10 @@
       "after": ["<Esc>"]
     }
   ],
-  "search.smartCase": true
+  "search.smartCase": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.lineNumbers": "relative",
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": true
 }

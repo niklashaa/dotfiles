@@ -18,6 +18,21 @@
     "command": "workbench.action.navigateDown"
   },
   {
+    "key": "ctrl+right",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "workbench.action.decreaseViewHeight"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "workbench.action.increaseViewHeight"
+  {
     "key": "space ,",
     "command": "workbench.action.showAllEditors",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
