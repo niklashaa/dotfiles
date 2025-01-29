@@ -12,7 +12,7 @@ family = "Hack Nerd Font"
 [window]
 decorations = "Buttonless"
 # opacity = 0.8
-option_as_alt = "OnlyLeft" # "Both"
+# option_as_alt = "OnlyLeft" # "Both"
 
 [window.padding]
 x = 7
