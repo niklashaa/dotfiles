@@ -13,7 +13,7 @@ return {
       json = { 'eslint_d' },
       -- sql = { 'sqlfmt', 'sql-formatter' },
       sql = { 'pg_format' },
-      yaml = { 'prettierd' },
+      -- yaml = { 'prettierd' },
       markdown = { 'prettierd' },
       -- Sub-list to tell conform to run *until* a formatter is found.
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
