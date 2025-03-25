@@ -32,6 +32,7 @@
   {
     "key": "ctrl+down",
     "command": "workbench.action.increaseViewHeight"
+  },
   {
     "key": "space ,",
     "command": "workbench.action.showAllEditors",
@@ -90,7 +91,7 @@
   },
   {
     "key": "ctrl+p",
-    "command": "workbench.action.quickOpen",
+    "command": "workbench.action.quickOpen"
   },
 
   // Coding
