@@ -11,6 +11,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       json = { 'eslint_d' },
+      julia = { 'julials' },
       -- sql = { 'sqlfmt', 'sql-formatter' },
       sql = { 'pg_format' },
       -- yaml = { 'prettierd' },

@@ -49,7 +49,7 @@ return {
 
     -- https://mason-registry.dev/registry/list
     local servers = {
-      -- julials = {},
+      julials = {},
       sqlls = {},
       fixjson = {},
       lua_ls = {
