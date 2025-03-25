@@ -7,18 +7,12 @@
 [user]
   email = niklas.haag@yahoo.de
   name = Niklas Haag
-[core]
-  editor = nvim
-  excludesfile = /Users/niklashaag/.gitignore_global
 [credential]
   credentialStore = keychain
 	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
   defaultBranch = main
-[diff]
-  tool = difftastic
-  submodule = log
 [status]
   submodulesummary = 1
 [pull]
@@ -33,3 +27,54 @@
   repo = /Users/niklashaag/code/kerith/webapp
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+# clearly makes git better
+
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[diff]
+#   tool = difftastic
+#   submodule = log
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+
+# why the hell not?
+
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[core]
+        excludesfile = ~/.gitignore_global
+        editor = nvim
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+
+# a matter of taste (uncomment if you dare)
+
+[core]
+        # fsmonitor = true
+        # untrackedCache = true
+[merge]
+        # (just 'diff3' if git version < 2.3)
+        conflictstyle = zdiff3
