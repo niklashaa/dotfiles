@@ -12,6 +12,8 @@ family = "Hack Nerd Font"
 [window]
 decorations = "Buttonless"
 # opacity = 0.8
+
+## Disabled to type Umlaute
 # option_as_alt = "OnlyLeft" # "Both"
 
 [window.padding]
