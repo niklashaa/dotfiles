@@ -163,6 +163,14 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 path=('/Users/niklashaag/.juliaup/bin' $path)
 export PATH
 
-# <<< juliaup initialize <<<
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias update-julia-dev='find ~/.julia/dev -type d -name .git -execdir git pull \;'
+
+# bun completions
+[ -s "/Users/niklashaag/.bun/_bun" ] && source "/Users/niklashaag/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
