@@ -136,7 +136,7 @@ run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'net.battle.app'
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
