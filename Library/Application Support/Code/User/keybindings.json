@@ -231,5 +231,19 @@
     "key": "enter",
     "command": "list.toggleExpand",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.newWindowTab"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "workbench.action.showPreviousWindowTab",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "workbench.action.showNextWindowTab",
+    "when": "!terminalFocus"
   }
 ]

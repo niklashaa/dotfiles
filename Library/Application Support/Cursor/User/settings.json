@@ -57,5 +57,14 @@
   "editor.lineNumbers": "relative",
   "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "julia.symbolCacheDownload": true,
-  "julia.enableTelemetry": true
+  "julia.enableTelemetry": true,
+  "breadcrumbs.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "window.nativeTabs": true,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "customizeUI.titleBar": "frameless",
+  "apc.electron": {
+    "titleBarStyle": "customButtonsOnHover"
+  }
 }
