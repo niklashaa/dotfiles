@@ -10,12 +10,13 @@ return {
 
     formatters_by_ft = {
       lua = { 'stylua' },
-      json = { 'eslint_d' },
+      json = { 'fixjson' },
       julia = { 'julials' },
       -- sql = { 'sqlfmt', 'sql-formatter' },
       sql = { 'pg_format' },
       -- yaml = { 'prettierd' },
       markdown = { 'prettierd' },
+      html = { 'htmlbeautifier' },
       -- Sub-list to tell conform to run *until* a formatter is found.
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
       vue = { 'eslint_d', 'prettierd', stop_after_first = true },
