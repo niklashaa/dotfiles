@@ -31,12 +31,6 @@ return {
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-        -- Diagnostic keymaps
-        map('[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
-        map(']d', vim.diagnostic.goto_next, 'Next diagnostic')
-        map('<leader>e', vim.diagnostic.open_float, 'Show diagnostic')
-        map('<leader>q', vim.diagnostic.setloclist, 'Show diagnostics list')
       end,
     })
 
@@ -46,19 +40,6 @@ return {
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
-    -- Enable diagnostics
-    vim.diagnostic.config {
-      virtual_text = true,
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-      severity_sort = true,
-      float = {
-        border = 'rounded',
-        source = true,
-      },
-    }
 
     --  Add any additional override configuration in the following tables. Available keys are:
     --  - cmd (table): Override the default command used to start the server
@@ -70,7 +51,6 @@ return {
     local servers = {
       -- julials = {},
       sqlls = {},
-      fixjson = {},
       lua_ls = {
         Lua = {
           runtime = {
@@ -95,7 +75,7 @@ return {
           telemetry = { enable = false },
         },
       },
-      eslint_d = {}, -- eslint but faster
+      eslint = {}, -- ESLint language server
     }
 
     require('mason').setup()

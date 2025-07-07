@@ -12,6 +12,10 @@ vim.keymap.set({ 'n' }, '<M-P>', ':vsp .', { silent = true })
 -- yank deleted to underscore register
 vim.keymap.set({ 'x' }, '<leader>p', '"_dP', { silent = true })
 
+-- Workaround to avoid flickering
+-- https://github.com/neovim/neovim/issues/32660
+vim.g._ts_force_sync_parsing = true
+
 -- turn off search highlight
 vim.keymap.set({ 'n' }, 'm<leader>', ':nohlsearch<CR>', { silent = true })
 
@@ -45,6 +49,19 @@ vim.keymap.set({ 'x' }, '<leader>=', ':wincmd =<cr>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Enable diagnostics
+vim.diagnostic.config {
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = true,
+  },
+}
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
