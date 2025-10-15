@@ -85,6 +85,7 @@ plugins=(
   gcloud
   zsh-autosuggestions
   docker
+  eza
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,12 +117,13 @@ eval "$(starship init zsh)"
 # For a full list of active aliases, run `alias`.
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
 alias cl='clear'
-alias ls="eza --icons=always"
 alias gci='git commit'
 alias gitst='git status'
 alias gdt='git difftool'
 alias glgt='f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff "$@"; }; f'
 alias gsht='f() { GIT_EXTERNAL_DIFF=difft git show "$@" --ext-diff; }; f'
+
+export DISABLE_AUTO_TITLE='true'
 
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
@@ -157,20 +159,23 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 # zprof # Stop profiling
 
 # >>> juliaup initialize >>>
-
 # !! Contents within this block are managed by juliaup !!
-
 path=('/Users/niklashaag/.juliaup/bin' $path)
 export PATH
+alias update-julia-dev='find ~/.julia/dev -type d -name .git -execdir git pull \;'
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias update-julia-dev='find ~/.julia/dev -type d -name .git -execdir git pull \;'
-
 # bun completions
 [ -s "/Users/niklashaag/.bun/_bun" ] && source "/Users/niklashaag/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude="/Users/niklashaag/.claude/local/claude"
+
+if command -v zoxide &> /dev/null; then
+    export ZOXIDE_CMD_OVERRIDE="cd"
+    eval "$(zoxide init zsh)"
+fi

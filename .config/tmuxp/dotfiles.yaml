@@ -1,0 +1,8 @@
+session_name: dotfiles
+start_directory: ~/dotfiles
+
+windows:
+  - window_name: dotfiles
+    panes:
+      - shell_command:
+          - vim -p ~/dotfiles/.config/nvim/lua/niklas/plugins ~/dotfiles/.config/nvim/lua/dadbods.lua ~/.claude/settings.json

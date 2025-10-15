@@ -1,0 +1,8 @@
+session_name: Notes
+start_directory: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes
+
+windows:
+  - window_name: notes
+    panes:
+      - shell_command:
+          - vim todo.md
