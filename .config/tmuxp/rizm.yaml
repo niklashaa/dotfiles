@@ -1,0 +1,65 @@
+session_name: rizm
+start_directory: ~/code/rizm
+
+windows:
+  - window_name: dev
+    start_directory: ~/code/rizm/dev
+    layout: main-vertical
+    options:
+      main-pane-width: 65%
+    panes:
+      - vim
+      - shell_command:
+          - claude --continue
+      - shell_command:
+          - cd app && firebase emulators:start --import ./firebase-export --export-on-exit ./firebase-export --only auth
+      - shell_command:
+          - cd app && PGHOST="localhost" yarn dev --dotenv ~/code/rizm/.env
+
+  - window_name: niklas
+    start_directory: ~/code/rizm/niklas
+    layout: main-vertical
+    options:
+      main-pane-width: 65%
+    panes:
+      - vim
+      - shell_command:
+          - claude --continue
+      - shell_command:
+          - cd app && PGHOST="localhost" PORT=30001 yarn dev --dotenv ~/code/rizm/.env
+
+  - window_name: mrs
+    start_directory: ~/code/rizm/mrs
+    layout: main-vertical
+    options:
+      main-pane-width: 65%
+    panes:
+      - vim
+      - shell_command:
+          - claude --continue
+      - shell_command:
+          - cd app
+
+  - window_name: projects
+    start_directory: ~/code/rizm/projects
+    layout: main-vertical
+    options:
+      main-pane-width: 65%
+    panes:
+      - vim
+      - shell_command:
+          - claude --continue
+      - shell_command:
+          - cd app
+
+  - window_name: testing
+    start_directory: ~/code/rizm/testing
+    layout: main-vertical
+    options:
+      main-pane-width: 65%
+    panes:
+      - vim
+      - shell_command:
+          - claude --continue
+      - shell_command:
+          - cd app

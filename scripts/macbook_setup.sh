@@ -13,7 +13,7 @@
 # Homebrew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
-brew install tmux fzf yarn neovim htop hurl
+brew install tmux tmuxp fzf yarn neovim htop hurl
 
 # Environment
 

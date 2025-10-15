@@ -1,0 +1,8 @@
+session_name: database
+start_directory: ~/code/rizm/dev/database
+
+windows:
+  - window_name: database
+    panes:
+      - shell_command:
+          - vim -c "DBUIToggle"

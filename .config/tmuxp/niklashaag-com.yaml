@@ -1,0 +1,8 @@
+session_name: niklashaag-com
+start_directory: ~/code/niklashaag-com
+
+windows:
+  - window_name: main
+    panes:
+      - shell_command:
+          - clear
