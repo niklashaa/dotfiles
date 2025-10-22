@@ -11,6 +11,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # https://stackoverflow.com/questions/62931101/i-have-multiple-files-of-zcompdump-why-do-i-have-multiple-files-of-these
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export EDITOR=nvim
 
 set -o vi
 
