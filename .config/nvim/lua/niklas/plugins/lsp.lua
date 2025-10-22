@@ -9,10 +9,21 @@ return {
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     { 'j-hui/fidget.nvim', opts = {} },
 
-    -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
-    { 'folke/neodev.nvim', opts = {} },
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua', -- only load on lua files
+      opts = {
+        library = {
+          -- See the configuration section for more details
+          -- Load luvit types when the `vim.uv` word is found
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        },
+      },
+    },
   },
+
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -34,6 +45,34 @@ return {
       end,
     })
 
+    -- See :help vim.diagnostic.Opts
+    vim.diagnostic.config {
+      severity_sort = true,
+      float = { border = 'rounded', source = 'if_many' },
+      underline = { severity = vim.diagnostic.severity.ERROR },
+      signs = vim.g.have_nerd_font and {
+        text = {
+          [vim.diagnostic.severity.ERROR] = '󰅚 ',
+          [vim.diagnostic.severity.WARN] = '󰀪 ',
+          [vim.diagnostic.severity.INFO] = '󰋽 ',
+          [vim.diagnostic.severity.HINT] = '󰌶 ',
+        },
+      } or {},
+      virtual_text = {
+        source = 'if_many',
+        spacing = 2,
+        format = function(diagnostic)
+          local diagnostic_message = {
+            [vim.diagnostic.severity.ERROR] = diagnostic.message,
+            [vim.diagnostic.severity.WARN] = diagnostic.message,
+            [vim.diagnostic.severity.INFO] = diagnostic.message,
+            [vim.diagnostic.severity.HINT] = diagnostic.message,
+          }
+          return diagnostic_message[diagnostic.severity]
+        end,
+      },
+    }
+
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -52,82 +91,53 @@ return {
       -- julials = {},
       sqlls = {},
       lua_ls = {
-        Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using
-            -- (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file('', true),
-            checkThirdParty = false,
-          },
-          diagnostics = {
-            -- Ignore Lua_LS's noisy `missing-fields` warnings
-            disable = { 'missing-fields' },
-            -- Get the language server to recognize the `vim` global
-            globals = {
-              'vim',
-              'require',
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
             },
+            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+            diagnostics = { disable = { 'missing-fields' } },
           },
-          telemetry = { enable = false },
         },
       },
       eslint = {}, -- ESLint language server
+      ts_ls = {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server',
+              languages = { 'javascript', 'typescript', 'vue' },
+            },
+          },
+        },
+        filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
+      },
     }
 
     require('mason').setup()
 
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
+    -- Add other tools here that Mason should install
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
+      'stylua',
+      -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
+      -- Pinned to v3.0.0 for Vue 2 support https://github.com/vuejs/language-tools/discussions/5455
+      { 'vue-language-server', version = '3.0.0', auto_update = false }, -- vue_ls
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+    -- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
     require('mason-lspconfig').setup {
       ensure_installed = vim.tbl_keys(servers),
-      automatic_installation = true,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-        -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
-        volar = function()
-          require('lspconfig').volar.setup {}
-        end,
-        ts_ls = function()
-          local vue_typescript_plugin = require('mason-registry').get_package('vue-language-server'):get_install_path()
-            .. '/node_modules/@vue/language-server'
-            .. '/node_modules/@vue/typescript-plugin'
-
-          require('lspconfig').ts_ls.setup {
-            init_options = {
-              plugins = {
-                {
-                  name = '@vue/typescript-plugin',
-                  location = vue_typescript_plugin,
-                  languages = { 'javascript', 'typescript', 'vue' },
-                },
-              },
-            },
-            filetypes = {
-              'javascript',
-              'javascriptreact',
-              'javascript.jsx',
-              'typescript',
-              'typescriptreact',
-              'typescript.tsx',
-              'vue',
-            },
-          }
-        end,
-      },
+      automatic_enable = true, -- Automatically enable installed servers
     }
+
+    -- Configure servers AFTER mason-lspconfig setup
+    for server_name, config in pairs(servers) do
+      config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+      require('lspconfig')[server_name].setup(config)
+    end
   end,
 }
