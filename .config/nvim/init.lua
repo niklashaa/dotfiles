@@ -63,6 +63,9 @@ require('lazy').setup({
     -- If you are using a Nerd Font: set icons to an empty table
     icons = {},
   },
+  change_detection = {
+    notify = false, -- Disable "Config Change Detected. Reloading..." notification
+  },
 })
 
 -- [[ automatically rebalance windows on vim resize ]]

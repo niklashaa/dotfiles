@@ -79,6 +79,7 @@ return {
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    -- capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
     --  Add any additional override configuration in the following tables. Available keys are:
     --  - cmd (table): Override the default command used to start the server
@@ -89,7 +90,6 @@ return {
     -- https://mason-registry.dev/registry/list
     local servers = {
       -- julials = {},
-      sqlls = {},
       lua_ls = {
         settings = {
           Lua = {
