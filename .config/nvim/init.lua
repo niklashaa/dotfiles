@@ -1,16 +1,9 @@
--- Repos for comparison
--- https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
--- https://github.com/dmmulroy/kickstart.nix/tree/main/config/nvim
-
 -- Using a namespaced folder for plugins like plugins/niklas avoids namespacing issues
 -- For instance having a treesitter config file named 'treesitter.lua' in your lua directory may cause issues
 -- as the 'treesitter' namespace is already in use by the treesitter plugin.
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -24,9 +17,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure plugins ]]
 require('lazy').setup({
-  'tpope/vim-fugitive', -- Git related plugins
+  'tpope/vim-fugitive',
   -- 'tpope/vim-rhubarb',
   -- 'tpope/vim-sensible',
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
