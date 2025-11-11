@@ -40,6 +40,8 @@ echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlight
 
 brew install eza
 
+brew install --cask anki
+
 # Databases
 # brew install mysql-client mysql
 brew install postgresql
