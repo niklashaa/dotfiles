@@ -5,15 +5,15 @@ return {
   --
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
-  -- { 'navarasu/onedark.nvim', name = "onedark" },
-  -- { "folke/tokyonight.nvim", name = "tokyonight", }
-  -- { "rose-pine/neovim", name = "rose-pine" },
-  -- { "bluz71/vim-nightfly-colors", name = "nightfly" },
-  -- { "catppuccin/nvim", name = "catppuccin" }
-  "ellisonleao/gruvbox.nvim",
+  -- { 'navarasu/onedark.nvim', name = 'onedark' },
+  -- { 'folke/tokyonight.nvim', name = 'tokyonight' },
+  -- { 'rose-pine/neovim', name = 'rose-pine' },
+  -- { 'bluz71/vim-nightfly-colors', name = 'nightfly' },
+  -- { 'catppuccin/nvim', name = 'catppuccin' },
+  'ellisonleao/gruvbox.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
   lazy = false,
-  name = "gruvbox",
+  name = 'gruvbox',
   init = function()
     vim.cmd.colorscheme 'gruvbox'
     -- You can configure highlights by doing something like:

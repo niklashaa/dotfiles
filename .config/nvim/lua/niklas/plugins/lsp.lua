@@ -1,8 +1,8 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'williamboman/mason.nvim', config = true },
-    'williamboman/mason-lspconfig.nvim',
+    { 'mason-org/mason.nvim', config = true },
+    'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
@@ -137,7 +137,8 @@ return {
     -- Configure servers AFTER mason-lspconfig setup
     for server_name, config in pairs(servers) do
       config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
-      require('lspconfig')[server_name].setup(config)
+      vim.lsp.config[server_name] = config
+      vim.lsp.enable(server_name)
     end
   end,
 }

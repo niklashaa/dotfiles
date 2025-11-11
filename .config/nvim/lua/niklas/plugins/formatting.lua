@@ -13,9 +13,9 @@ return {
       json = { 'fixjson' },
       julia = { 'julials' },
       -- sql = { 'sqlfmt', 'sql-formatter' },
-      sql = { 'pg_format' },
+      -- sql = { 'pg_format' },
       -- yaml = { 'prettierd' },
-      markdown = { 'prettierd' },
+      -- markdown = { 'prettierd' },
       html = { 'htmlbeautifier' },
       -- Sub-list to tell conform to run *until* a formatter is found.
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
