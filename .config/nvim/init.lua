@@ -18,7 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- 'tpope/vim-fugitive', -- Currently replaced by neogit
+  'tpope/vim-fugitive',
   -- 'tpope/vim-rhubarb',
   -- 'tpope/vim-sensible',
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
