@@ -2,6 +2,7 @@
 # Ctrl+s d
 # tmux kill-server
 # Start all tmuxp sessions
+# Takes session names from ~/.config/tmuxp/
 
 sessions=("notes" "database" "dotfiles" "niklashaag-com" "rizm")
 
