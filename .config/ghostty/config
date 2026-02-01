@@ -1,0 +1,24 @@
+# https://ghostty.org/docs/config/reference
+
+mouse-hide-while-typing = true
+
+font-family = Hack Nerd Font
+font-size = 12
+
+# theme = Gruvbox Material Dark
+# background-opacity = 0.8
+
+macos-titlebar-style = hidden
+window-padding-x = 7
+window-padding-y = 0
+
+# macos-option-as-alt = left
+
+# Word navigation (Alt+B/F) while preserving Option for Umlauts
+# macos-option-as-alt = left
+keybind = alt+b=text:\x1bb
+keybind = alt+f=text:\x1bf
+keybind = alt+d=text:\x1bd
+keybind = alt+.=text:\x1b.
+# Make CTRL+6 work
+keybind = ctrl+six=text:\x1e
