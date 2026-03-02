@@ -72,5 +72,13 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- [[ Treat .env.* files as dotenv with bash syntax highlighting ]]
+vim.filetype.add({
+  pattern = {
+    ['%.env%..*'] = 'dotenv',
+  },
+})
+vim.treesitter.language.register('bash', 'dotenv')
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

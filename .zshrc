@@ -174,9 +174,8 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-alias claude="/Users/niklashaag/.claude/local/claude"
-
 if command -v zoxide &> /dev/null; then
     export ZOXIDE_CMD_OVERRIDE="cd"
     eval "$(zoxide init zsh)"
 fi
+export PATH="$HOME/.local/bin:$PATH"

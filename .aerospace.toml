@@ -147,6 +147,10 @@ if.app-id = 'net.battle.app'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
+if.app-id = 'org.keepassxc.keepassxc'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
 if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace 8'
 

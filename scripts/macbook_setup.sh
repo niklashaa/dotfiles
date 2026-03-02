@@ -42,6 +42,8 @@ brew install eza
 
 brew install --cask anki
 
+brew install jj
+
 # Databases
 # brew install mysql-client mysql
 brew install postgresql
@@ -70,6 +72,7 @@ npm install -g typescript
 ### firebase login might only work with Chrome
 ### => firebase login --no-localhost, copy url into chrome if chrome is not default
 npm install -g firebase-tools
+brew install cloud-sql-proxy
 
 # Julia
 # 1) Install julia, Add to Applications

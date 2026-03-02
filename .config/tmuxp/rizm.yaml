@@ -12,9 +12,9 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app && firebase emulators:start --import ./firebase-export --export-on-exit ./firebase-export --only auth
+          - cd app && FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 DOTENV=~/code/rizm/.env yarn dev:local
       - shell_command:
-          - cd app && PGHOST="localhost" yarn dev --dotenv ~/code/rizm/.env
+          - cd app && yarn dev:services
 
   - window_name: niklas
     start_directory: ~/code/rizm/niklas
@@ -26,7 +26,7 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app && PGHOST="localhost" PORT=30001 yarn dev --dotenv ~/code/rizm/.env
+          - cd app && PORT=30001 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 yarn dev --dotenv ~/code/rizm/.env
 
   - window_name: mrs
     start_directory: ~/code/rizm/mrs
@@ -50,16 +50,16 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app
+          - cd app && PORT=30003 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 yarn dev --dotenv ~/code/rizm/.env
 
-  - window_name: testing
-    start_directory: ~/code/rizm/testing
-    layout: main-vertical
-    options:
-      main-pane-width: 65%
-    panes:
-      - vim
-      - shell_command:
-          - claude --continue
-      - shell_command:
-          - cd app
+  # - window_name: testing
+  #   start_directory: ~/code/rizm/testing
+  #   layout: main-vertical
+  #   options:
+  #     main-pane-width: 65%
+  #   panes:
+  #     - vim
+  #     - shell_command:
+  #         - claude --continue
+  #     - shell_command:
+  #         - cd app
