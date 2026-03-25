@@ -1,0 +1,16 @@
+# macOS-specific alacritty overrides
+[window]
+decorations = "Buttonless"
+
+[keyboard]
+bindings = [
+  # Make CTRL + 6 work https://github.com/alacritty/alacritty/issues/8038#issuecomment-2346411632
+  { mods = "Control", key = "Key6", chars = "\u001e" },
+  # Word navigation (Alt+B/F) while preserving Option for Umlauts
+  { mods = "Alt", key = "b", chars = "\u001bb" },
+  { mods = "Alt", key = "f", chars = "\u001bf" },
+  # Delete word forward
+  { mods = "Alt", key = "d", chars = "\u001bd" },
+  # Insert last argument from previous command
+  { mods = "Alt", key = ".", chars = "\u001b." },
+]

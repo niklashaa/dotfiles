@@ -4,3 +4,4 @@ vim/autoload/
 kickstart.nvim
 tags*
 **/dadbods.*
+.config/alacritty/local.toml
