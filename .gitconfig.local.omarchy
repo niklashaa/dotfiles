@@ -1,0 +1,13 @@
+# Omarchy-specific git config
+# Credential helpers are set up by gh/glab auth login
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gitlab.com"]
+	helper =
+	helper = !/usr/bin/glab auth git-credential

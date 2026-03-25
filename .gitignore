@@ -5,3 +5,4 @@ kickstart.nvim
 tags*
 **/dadbods.*
 .config/alacritty/local.toml
+.gitconfig.local

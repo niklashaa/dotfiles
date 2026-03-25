@@ -33,6 +33,9 @@ fi
 
 info "Detected OS: $OS"
 
+# Ensure non-standard install paths are available throughout the script
+export PATH="$HOME/.local/bin:$HOME/.juliaup/bin:$HOME/google-cloud-sdk/bin:$PATH"
+
 # ─── Shared packages ─────────────────────────────────────────────────────────
 
 info "Installing shared packages..."
@@ -101,7 +104,7 @@ fi
 info "Stowing dotfiles..."
 cd "$DOTFILES_DIR"
 
-for target in .config/nvim .config/alacritty .tmux.conf .zshrc; do
+for target in .config/nvim .config/alacritty .config/tmux .config/tmuxp .config/ghostty .tmux.conf .zshrc .gitconfig; do
   real_path="$HOME/$target"
   if [ -e "$real_path" ] && [ ! -L "$real_path" ]; then
     info "Backing up existing $target to ${target}.bak"
@@ -113,19 +116,29 @@ stow .
 
 ok "Dotfiles stowed"
 
-# ─── Alacritty local.toml ────────────────────────────────────────────────────
+# ─── Machine-specific configs ─────────────────────────────────────────────────
 
-ALACRITTY_LOCAL="$HOME/.config/alacritty/local.toml"
-if [ ! -f "$ALACRITTY_LOCAL" ]; then
-  if [[ "$OS" == "macos" ]]; then
-    cp "$DOTFILES_DIR/.config/alacritty/local.toml.macos" "$ALACRITTY_LOCAL"
-  elif [[ "$OS" == "arch" ]]; then
-    cp "$DOTFILES_DIR/.config/alacritty/local.toml.omarchy" "$ALACRITTY_LOCAL"
+copy_local() {
+  local target="$1" macos_src="$2" arch_src="$3"
+  if [ ! -f "$target" ]; then
+    if [[ "$OS" == "macos" ]]; then
+      cp "$macos_src" "$target"
+    elif [[ "$OS" == "arch" ]]; then
+      cp "$arch_src" "$target"
+    fi
+    ok "Created $(basename "$target") for $OS"
+  else
+    skip "$(basename "$target") already exists"
   fi
-  ok "Alacritty local.toml created for $OS"
-else
-  skip "Alacritty local.toml already exists"
-fi
+}
+
+copy_local "$HOME/.config/alacritty/local.toml" \
+  "$DOTFILES_DIR/.config/alacritty/local.toml.macos" \
+  "$DOTFILES_DIR/.config/alacritty/local.toml.omarchy"
+
+copy_local "$HOME/.gitconfig.local" \
+  "$DOTFILES_DIR/.gitconfig.local.macos" \
+  "$DOTFILES_DIR/.gitconfig.local.omarchy"
 
 # ─── Zsh as default shell ────────────────────────────────────────────────────
 
@@ -152,9 +165,9 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 
-if [ ! -d "$NVM_DIR" ]; then
+if [ ! -s "$NVM_DIR/nvm.sh" ]; then
   info "Installing nvm..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/dev/null bash
   ok "nvm installed"
 else
   skip "nvm already installed"
