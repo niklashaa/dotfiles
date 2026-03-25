@@ -12,9 +12,10 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app && FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 DOTENV=~/code/rizm/.env yarn dev:local
+          - cd app
+          - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
       - shell_command:
-          - cd app && yarn dev:services
+          - cd app && pnpm dev:services
 
   - window_name: niklas
     start_directory: ~/code/rizm/niklas
@@ -26,7 +27,9 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app && PORT=30001 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 yarn dev --dotenv ~/code/rizm/.env
+          - cd app
+          - export PORT=30001
+          - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 
   - window_name: mrs
     start_directory: ~/code/rizm/mrs
@@ -39,6 +42,8 @@ windows:
           - claude --continue
       - shell_command:
           - cd app
+          - export PORT=30002
+          - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 
   - window_name: projects
     start_directory: ~/code/rizm/projects
@@ -50,7 +55,9 @@ windows:
       - shell_command:
           - claude --continue
       - shell_command:
-          - cd app && PORT=30003 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 yarn dev --dotenv ~/code/rizm/.env
+          - cd app
+          - export PORT=30003
+          - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 
   # - window_name: testing
   #   start_directory: ~/code/rizm/testing

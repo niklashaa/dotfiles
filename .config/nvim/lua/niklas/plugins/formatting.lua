@@ -18,9 +18,9 @@ return {
       -- markdown = { 'prettierd' },
       -- html = { 'htmlbeautifier' },
       -- Sub-list to tell conform to run *until* a formatter is found.
-      javascript = { 'prettier' },
-      typescript = { 'prettier' },
-      vue = { 'prettier' },
+      javascript = { 'eslint_d' },
+      typescript = { 'eslint_d' },
+      vue = { 'eslint_d' },
     },
   },
 }

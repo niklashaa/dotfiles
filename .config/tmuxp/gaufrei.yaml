@@ -1,0 +1,10 @@
+session_name: gaufrei
+start_directory: ~/Documents/gaufrei
+
+windows:
+  - window_name: main
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - claude --continue
+      -

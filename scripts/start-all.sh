@@ -4,7 +4,7 @@
 # Start all tmuxp sessions
 # Takes session names from ~/.config/tmuxp/
 
-sessions=("notes" "database" "dotfiles" "niklashaag-com" "rizm")
+sessions=("notes" "database" "dotfiles" "niklashaag-com" "rizm" "gaufrei")
 
 for session in "${sessions[@]}"; do
     echo "Loading $session session..."

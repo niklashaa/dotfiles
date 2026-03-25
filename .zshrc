@@ -168,6 +168,9 @@ alias update-julia-dev='find ~/.julia/dev -type d -name .git -execdir git pull \
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# pnpm completions
+eval "$(pnpm completion zsh)"
+
 # bun completions
 [ -s "/Users/niklashaag/.bun/_bun" ] && source "/Users/niklashaag/.bun/_bun"
 # bun
@@ -175,7 +178,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 if command -v zoxide &> /dev/null; then
-    export ZOXIDE_CMD_OVERRIDE="cd"
-    eval "$(zoxide init zsh)"
+    eval "$(zoxide init zsh --cmd cd)"
 fi
 export PATH="$HOME/.local/bin:$PATH"
