@@ -13,9 +13,10 @@ windows:
           - claude --continue
       - shell_command:
           - cd app
+          - pnpm install
           - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
       - shell_command:
-          - cd app && pnpm dev:services
+          - cd app && pnpm install && pnpm dev:services
 
   - window_name: niklas
     start_directory: ~/code/rizm/niklas
@@ -28,6 +29,7 @@ windows:
           - claude --continue
       - shell_command:
           - cd app
+          - pnpm install
           - export PORT=30001
           - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 
@@ -42,6 +44,7 @@ windows:
           - claude --continue
       - shell_command:
           - cd app
+          - pnpm install
           - export PORT=30002
           - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 
@@ -56,6 +59,7 @@ windows:
           - claude --continue
       - shell_command:
           - cd app
+          - pnpm install
           - export PORT=30003
           - FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 SERVICE_URL=http://localhost:8080 pnpm dev --dotenv ~/code/rizm/.env
 

@@ -34,6 +34,11 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# Claude yolo mode on omarchy only
+if [[ "$(hostname)" == omarchy* ]]; then
+  alias claude='claude --dangerously-skip-permissions'
+fi
+
 alias reload='echo "Reload ~/.zshrc" && source ~/.zshrc'
 alias cl='clear'
 alias gci='git commit'
