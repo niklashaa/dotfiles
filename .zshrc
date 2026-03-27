@@ -35,7 +35,7 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 # Claude yolo mode on omarchy only
-if [[ "$(hostname)" == omarchy* ]]; then
+if [[ "$(hostname)" == werk ]]; then
   alias claude='claude --dangerously-skip-permissions'
 fi
 
