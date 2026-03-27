@@ -82,7 +82,8 @@ elif [[ "$OS" == "arch" ]]; then
     gh \
     glab \
     ttf-hack-nerd \
-    postgresql-libs
+    postgresql \
+    postgis
 
   # tmuxp via pipx
   if ! installed tmuxp; then
