@@ -90,6 +90,16 @@ elif [[ "$OS" == "arch" ]]; then
     pkg_install python-pipx
     pipx install tmuxp
   fi
+
+  # cloud-sql-proxy (no pacman package, binary download)
+  if ! installed cloud-sql-proxy; then
+    info "Installing cloud-sql-proxy..."
+    mkdir -p "$HOME/.local/bin"
+    curl -o "$HOME/.local/bin/cloud-sql-proxy" \
+      https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.15.2/cloud-sql-proxy.linux.amd64
+    chmod +x "$HOME/.local/bin/cloud-sql-proxy"
+    ok "cloud-sql-proxy installed"
+  fi
 fi
 
 # ─── Dotfiles ────────────────────────────────────────────────────────────────
