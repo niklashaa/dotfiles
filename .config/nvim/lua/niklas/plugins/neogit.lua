@@ -5,7 +5,7 @@ return {
     { '<leader>g-', '<cmd>Git checkout -<cr>', desc = 'Checkout previous branch' },
   },
   opts = {
-    kind = 'replace',
+    kind = 'tab',
   },
   dependencies = {
     'nvim-lua/plenary.nvim', -- required
