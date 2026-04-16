@@ -67,7 +67,8 @@ if [[ "$OS" == "macos" ]]; then
   pkg_install_cask aerospace
   pkg_install tmuxp
   pkg_install font-hack-nerd-font
-  pkg_install gh glab
+  brew tap schpet/tap 2>/dev/null || true
+  pkg_install gh glab linear
   pkg_install postgresql@18
   pkg_install cloud-sql-proxy
 
