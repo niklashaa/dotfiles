@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:neovim.io)",
+      "Read(//Users/niklashaag/.local/share/nvim/lazy/blink.cmp/**)",
+      "Bash(fd:*)",
+      "Bash(time rg:*)",
+      "Bash(ssh omarchy-1:*)",
+      "Bash(ssh werk:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

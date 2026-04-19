@@ -1,0 +1,158 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "__ALL_TOOLS__",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Edit",
+      "Write",
+      "NotebookEdit",
+      "__ALL_BASH__",
+      "Bash(*)",
+      "__MCP_SERVERS__",
+      "mcp__linear-server__*",
+      "Skill(playwright-cli)",
+      "Skill(playwright-cli:*)"
+    ],
+    "deny": [],
+    "ask": [
+      "__DESTRUCTIVE_GIT__",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean -f:*)",
+      "Bash(git clean -fd:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git checkout .:*)",
+      "Bash(git checkout --:*)",
+      "Bash(git checkout -- :*)",
+      "Bash(git restore:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git stash drop:*)",
+      "Bash(git stash clear:*)",
+      "Bash(git rebase:*)",
+      "Bash(git commit --amend:*)",
+      "Bash(git -C * reset:*)",
+      "Bash(git -C * clean:*)",
+      "Bash(git -C * checkout:*)",
+      "Bash(git -C * restore:*)",
+      "Bash(git -C * branch -D:*)",
+      "Bash(git -C * stash drop:*)",
+      "Bash(git -C * stash clear:*)",
+      "Bash(git -C * rebase:*)",
+      "Bash(git -C * commit --amend:*)",
+      "Bash(git -C * push --force:*)",
+      "Bash(git -C * push -f:*)",
+      "__FILE_DELETION__",
+      "Bash(rm:*)",
+      "Bash(rm *)",
+      "__DEV_SERVERS_BUILDS__",
+      "Bash(yarn dev)",
+      "Bash(yarn dev:*)",
+      "Bash(yarn build)",
+      "Bash(yarn build:*)",
+      "Bash(npm run dev)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build)",
+      "Bash(npm run build:*)",
+      "__DOCKER_LIFECYCLE__",
+      "Bash(docker-compose up:*)",
+      "Bash(docker-compose down:*)",
+      "Bash(docker-compose restart:*)",
+      "Bash(docker rm:*)",
+      "Bash(docker rmi:*)",
+      "Bash(docker system prune:*)",
+      "Bash(docker volume rm:*)",
+      "__PROCESS_MANAGEMENT__",
+      "Bash(kill:*)",
+      "Bash(kill *)",
+      "Bash(pkill:*)",
+      "Bash(killall:*)",
+      "__SYSTEM_PERMISSIONS__",
+      "Bash(chmod:*)",
+      "Bash(chown:*)",
+      "Bash(sudo:*)",
+      "__PACKAGE_PUBLISHING__",
+      "Bash(npm publish:*)",
+      "Bash(yarn publish:*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus[1m]",
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccwork.sh add"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/niklashaag/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": false,
+    "hookify@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "rizm-plugins": {
+      "source": {
+        "source": "git",
+        "url": "git@gitlab.com:rizm/rizm-claude-plugins.git"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1753999930407
+  }
+}
