@@ -82,7 +82,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/ccwork.sh remove; ~/.claude/hooks/ccwork.sh add @ccstop_panes; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
           }
         ]
       }
@@ -92,7 +92,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/ccwork.sh remove; ~/.claude/hooks/ccwork.sh add @ccstop_panes; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
           }
         ]
       }
