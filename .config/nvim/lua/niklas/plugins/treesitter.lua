@@ -1,11 +1,20 @@
 -- See `:help nvim-treesitter`
+-- nvim-treesitter `main` branch: the `master` branch is frozen and does NOT
+-- support Neovim 0.12 (it crashes the highlighter with "attempt to call method
+-- 'range' (a nil value)"). `main` is the rewrite with a new API — no
+-- require('nvim-treesitter.configs'); parsers via .install(), highlighting via
+-- vim.treesitter.start() on FileType. Requires the `tree-sitter` CLI to build
+-- parsers (brew install tree-sitter-cli).
 return {
-  -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  branch = 'main',
+  lazy = false,
   build = ':TSUpdate',
-  opts = {
-    ensure_installed = {
-      -- 'c', 'cpp', 'go', 'rust', 'nix',
+  config = function()
+    local ts = require('nvim-treesitter')
+    ts.setup()
+
+    local ensure_installed = {
       'bash',
       'css',
       'gitcommit',
@@ -16,6 +25,7 @@ return {
       'julia',
       'lua',
       'markdown',
+      'markdown_inline',
       'python',
       'sql',
       'tsx',
@@ -23,15 +33,29 @@ return {
       'vim',
       'vimdoc',
       'vue',
-    },
-    -- Autoinstall languages that are not installed
-    auto_install = false,
-    highlight = { enable = true },
-    indent = { enable = true },
-  },
-  config = function(_, opts)
-    require('nvim-treesitter.install').prefer_git = true
-    ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup(opts)
+    }
+
+    -- Install missing parsers (async, idempotent — only fetches what's absent).
+    local installed = ts.get_installed()
+    local missing = vim.tbl_filter(function(lang)
+      return not vim.tbl_contains(installed, lang)
+    end, ensure_installed)
+    if #missing > 0 then
+      ts.install(missing)
+    end
+
+    -- Enable highlighting + (experimental) indentation on real file buffers.
+    -- The buftype guard skips scratch/preview buffers (e.g. telescope previews).
+    vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('treesitter-enable', { clear = true }),
+      callback = function(ev)
+        if vim.bo[ev.buf].buftype ~= '' then
+          return
+        end
+        if pcall(vim.treesitter.start, ev.buf) then
+          vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
   end,
 }

@@ -38,6 +38,11 @@ end
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('treesitter-enable', { clear = true }),
   callback = function(ev)
+    -- Only attach to normal file buffers. Skips scratch/preview/special buffers
+    -- (buftype ~= '') so the highlighter never runs on e.g. plugin previews.
+    if vim.bo[ev.buf].buftype ~= '' then
+      return
+    end
     if pcall(vim.treesitter.start, ev.buf) then
       vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end

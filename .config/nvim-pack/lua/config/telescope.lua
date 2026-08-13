@@ -1,4 +1,11 @@
 require('telescope').setup({
+  defaults = {
+    -- Telescope's previewer runs vim.treesitter.start() on preview buffers.
+    -- On nvim-treesitter `main` + Neovim 0.12 that crashes inside injection
+    -- queries (get_range on a nil node). Use regex highlighting in previews
+    -- instead. Real buffers still get full treesitter highlighting.
+    preview = { treesitter = false },
+  },
   extensions = {
     ['ui-select'] = {
       require('telescope.themes').get_dropdown(),
