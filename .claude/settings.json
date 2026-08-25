@@ -72,7 +72,68 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/ccwork.sh add"
+            "command": "~/.claude/hooks/ccstate.sh work"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh wait"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh wait"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh work"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh work"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh wait"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh done"
           }
         ]
       }
@@ -82,7 +143,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+            "command": "~/.claude/hooks/ccstate.sh done"
           }
         ]
       }
@@ -92,7 +153,17 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/ccwork.sh remove; tmux set-window-option -t \"$TMUX_PANE\" window-status-style 'fg=colour232 bg=yellow bold' 2>/dev/null"
+            "command": "~/.claude/hooks/ccstate.sh done"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ccstate.sh gone"
           }
         ]
       }
