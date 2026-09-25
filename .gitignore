@@ -6,3 +6,5 @@ tags*
 **/dadbods.*
 .config/alacritty/local.toml
 .gitconfig.local
+.config/tmux/plugins/
+.zshrc.bak.*

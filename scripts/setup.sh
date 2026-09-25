@@ -61,20 +61,7 @@ pkg_install \
 # ─── OS-specific packages ────────────────────────────────────────────────────
 
 if [[ "$OS" == "macos" ]]; then
-  info "Installing macOS-specific packages..."
-  pkg_install_cask alacritty
-  brew tap nikitabobko/tap 2>/dev/null || true
-  pkg_install_cask aerospace
-  pkg_install tmuxp
-  pkg_install font-hack-nerd-font
-  brew tap schpet/tap 2>/dev/null || true
-  pkg_install gh glab linear
-  pkg_install postgresql@18
-  pkg_install cloud-sql-proxy
-
-  # Git Credential Manager
-  brew tap microsoft/git 2>/dev/null || true
-  pkg_install_cask git-credential-manager-core
+  skip "macOS packages come from the Brewfile, installed after the dotfiles clone"
 
 elif [[ "$OS" == "arch" ]]; then
   info "Installing Arch-specific packages..."
@@ -116,7 +103,7 @@ fi
 info "Stowing dotfiles..."
 cd "$DOTFILES_DIR"
 
-for target in .config/nvim .config/alacritty .config/tmux .config/tmuxp .config/ghostty .tmux.conf .zshrc .gitconfig; do
+for target in .config/nvim .config/alacritty .config/tmux .config/tmuxp .config/ghostty .tmux.conf .zshrc .zprofile .gitconfig; do
   real_path="$HOME/$target"
   if [ -e "$real_path" ] && [ ! -L "$real_path" ]; then
     info "Backing up existing $target to ${target}.bak"
@@ -127,6 +114,14 @@ done
 stow .
 
 ok "Dotfiles stowed"
+
+# ─── Brewfile (macOS) ─────────────────────────────────────────────────────────
+
+if [[ "$OS" == "macos" ]]; then
+  info "Installing Brewfile packages..."
+  brew bundle --file "$DOTFILES_DIR/Brewfile" --no-upgrade
+  ok "Brewfile installed"
+fi
 
 # ─── Machine-specific configs ─────────────────────────────────────────────────
 
@@ -204,6 +199,20 @@ else
   skip "pnpm already installed"
 fi
 
+# ─── npm globals ─────────────────────────────────────────────────────────────
+
+info "Installing npm globals..."
+npm install -g @playwright/cli @posthog/cli firebase-tools vercel
+
+# ─── Podman machine (macOS) ──────────────────────────────────────────────────
+
+if [[ "$OS" == "macos" ]] && installed podman && [ -z "$(podman machine list --format '{{.Name}}' 2>/dev/null)" ]; then
+  info "Creating podman machine..."
+  podman machine init --cpus 4 --memory 8192 --disk-size 100
+  podman machine start
+  ok "podman machine running (docker CLI shim uses it)"
+fi
+
 # ─── Starship prompt ─────────────────────────────────────────────────────────
 
 if ! installed starship; then
@@ -255,3 +264,5 @@ echo "  2. Open tmux and press Ctrl-s + I to install plugins"
 echo "  3. Run 'gcloud init' if you need Google Cloud"
 echo "  4. Run 'gh auth login' for GitHub"
 echo "  5. Run 'glab auth login' for GitLab"
+echo "  6. Restore ~/.ssh, ~/.gitconfig.local, ~/.zshrc.local from the migration folder"
+echo "  7. Run 'claude' once to log in"
