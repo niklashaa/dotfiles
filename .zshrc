@@ -140,6 +140,9 @@ alias tl='tmux list-sessions'
 alias tkss='tmux kill-session -t'
 alias tksv='tmux kill-server'
 
+alias c='claude'
+alias cc='claude --dangerously-skip-permissions'
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -160,30 +163,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 # zprof # Stop profiling
 
-# >>> juliaup initialize >>>
-# !! Contents within this block are managed by juliaup !!
-path=('/Users/niklashaag/.juliaup/bin' $path)
-export PATH
-alias update-julia-dev='find ~/.julia/dev -type d -name .git -execdir git pull \;'
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# bun completions
-[ -s "/Users/niklashaag/.bun/_bun" ] && source "/Users/niklashaag/.bun/_bun"
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-if command -v zoxide &> /dev/null; then
-    export _ZO_DOCTOR=0  # silence "init at end of config" warning (Claude Code's shell snapshot drops chpwd_functions)
-    eval "$(zoxide init zsh --cmd cd)"
-fi
-export PATH="$HOME/.local/bin:$PATH"
-
-# Secrets live outside the repo
-[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
-
 # lazygit: alias + cd-on-exit
 lg() {
   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
@@ -192,26 +171,3 @@ lg() {
     cd "$(cat $LAZYGIT_NEW_DIR_FILE)" && rm -f $LAZYGIT_NEW_DIR_FILE
   fi
 }
-
-# rizm CLI: run via tsx from the cli/ of the current git worktree
-unalias rizm 2>/dev/null
-rizm() {
-  local root
-  root="$(git rev-parse --show-toplevel 2>/dev/null)"
-  if [[ -z "$root" || ! -d "$root/cli" ]]; then
-    root="$HOME/code/rizm/dev"
-  fi
-  pnpm --silent --dir "$root/cli" exec tsx src/index.ts "$@"
-}
-
-alias cc='claude --dangerously-skip-permissions'
-alias c='claude'
-
-# pnpm
-export PNPM_HOME="/Users/niklashaag/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
