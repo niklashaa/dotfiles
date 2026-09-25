@@ -16,6 +16,7 @@ return {
 
     local ensure_installed = {
       'bash',
+      'blade',
       'css',
       'gitcommit',
       'html',
@@ -26,6 +27,7 @@ return {
       'lua',
       'markdown',
       'markdown_inline',
+      'php',
       'python',
       'sql',
       'tsx',

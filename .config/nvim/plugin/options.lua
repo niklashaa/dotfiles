@@ -38,6 +38,18 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
+-- Re-read files changed on disk (git checkout, worktree switch) instead of keeping
+-- a stale buffer that then disagrees with what the language server sees
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
+  group = vim.api.nvim_create_augroup('niklas-checktime', { clear = true }),
+  callback = function()
+    if vim.fn.getcmdwintype() == '' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+
 -- Decrease update time
 vim.o.updatetime = 50
 vim.o.timeoutlen = 300

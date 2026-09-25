@@ -13,3 +13,5 @@ todo.txt
 *.env
 *.dump
 *.devcontainer
+
+**/.claude/settings.local.json

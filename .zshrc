@@ -13,6 +13,12 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export EDITOR=nvim
 
+# Agent harnesses export GIT_EDITOR=true so no editor can block their non-tty
+# shell. A tmux server forked from one of them keeps that in its global env for
+# its whole life, and every pane inherits it -- which silently turns
+# `git rebase -i` into a no-op replay. Drop it; core.editor is the real answer.
+unset GIT_EDITOR
+
 set -o vi
 
 # Set name of the theme to load --- if set to "random", it will
@@ -29,6 +35,8 @@ fi
 # Use neovim as default
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+  # Experimental vim.pack config (see .config/nvim-pack/)
+  alias nvp='NVIM_APPNAME=nvim-pack nvim'
 fi
 
 # Uncomment the following line to use case-sensitive completion.
@@ -175,9 +183,42 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 if command -v zoxide &> /dev/null; then
+    export _ZO_DOCTOR=0  # silence "init at end of config" warning (Claude Code's shell snapshot drops chpwd_functions)
     eval "$(zoxide init zsh --cmd cd)"
 fi
 export PATH="$HOME/.local/bin:$PATH"
 
+# Secrets live outside the repo
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+# lazygit: alias + cd-on-exit
+lg() {
+  export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+  command lazygit "$@"
+  if [ -f "$LAZYGIT_NEW_DIR_FILE" ]; then
+    cd "$(cat $LAZYGIT_NEW_DIR_FILE)" && rm -f $LAZYGIT_NEW_DIR_FILE
+  fi
+}
+
+# rizm CLI: run via tsx from the cli/ of the current git worktree
+unalias rizm 2>/dev/null
+rizm() {
+  local root
+  root="$(git rev-parse --show-toplevel 2>/dev/null)"
+  if [[ -z "$root" || ! -d "$root/cli" ]]; then
+    root="$HOME/code/rizm/dev"
+  fi
+  pnpm --silent --dir "$root/cli" exec tsx src/index.ts "$@"
+}
+
 alias cc='claude --dangerously-skip-permissions'
 alias c='claude'
+
+# pnpm
+export PNPM_HOME="/Users/niklashaag/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+

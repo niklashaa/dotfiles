@@ -25,7 +25,7 @@
 	prompt = false
 
 [difftool "difftastic"]
-	cmd = difft "$LOCAL" "$REMOTE"
+	cmd = difft \"$LOCAL\" \"$REMOTE\"
 
 [pager]
 	difftool = true
@@ -46,6 +46,7 @@
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
+	tool = difftastic
 
 [push]
 	default = simple
@@ -77,3 +78,10 @@
 
 [merge]
 	conflictstyle = zdiff3
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[credential "https://github.com"]
+	username = niklashaa

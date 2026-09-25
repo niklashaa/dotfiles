@@ -6,7 +6,13 @@
       "Bash(fd:*)",
       "Bash(time rg:*)",
       "Bash(ssh omarchy-1:*)",
-      "Bash(ssh werk:*)"
+      "Bash(ssh werk:*)",
+      "Bash(cp *)",
+      "Bash(python3 *)",
+      "Bash(git show *)",
+      "Bash(git diff *)",
+      "Bash(pnpm exec *)",
+      "Bash(mkdir *)"
     ],
     "deny": [],
     "ask": []

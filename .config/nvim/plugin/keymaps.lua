@@ -63,6 +63,27 @@ vim.diagnostic.config {
   },
 }
 
+-- Restart the LSP clients on this buffer. tsserver holds project state that goes
+-- stale when files change outside the editor (branch switch, pnpm install), which
+-- surfaces as diagnostics for code that is already fixed.
+vim.keymap.set({ 'n' }, '<leader>lr', function()
+  local clients = vim.lsp.get_clients { bufnr = 0 }
+  if vim.tbl_isempty(clients) then
+    return vim.notify('No LSP client attached', vim.log.levels.WARN)
+  end
+  local names = vim.tbl_map(function(c)
+    return c.name
+  end, clients)
+
+  vim.lsp.stop_client(clients)
+  vim.defer_fn(function()
+    vim.lsp.stop_client(clients, true) -- force-kill whatever ignored the graceful stop
+    -- Re-fires the attach autocmd without reloading the buffer, so unsaved changes survive
+    vim.api.nvim_exec_autocmds('FileType', { buffer = 0 })
+    vim.notify('Restarted: ' .. table.concat(names, ', '))
+  end, 500)
+end, { desc = 'Restart LSP for this buffer' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })

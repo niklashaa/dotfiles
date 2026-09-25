@@ -123,8 +123,9 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua',
       -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
-      -- Pinned to v3.0.0 for Vue 2 support https://github.com/vuejs/language-tools/discussions/5455
-      { 'vue-language-server', version = '3.0.0', auto_update = false }, -- vue_ls
+      -- Pinned to match the RIZM project's vue-tsc / @vue/language-core version
+      -- so editor diagnostics match `pnpm typecheck:frontend`.
+      { 'vue-language-server', version = '3.2.7', auto_update = false }, -- vue_ls
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
